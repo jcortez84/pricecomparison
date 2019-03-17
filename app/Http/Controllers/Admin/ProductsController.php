@@ -10,7 +10,7 @@ use App\ProductImage;
 use App\Match;
 use App\Brand;
 use App\Category;
-use App\ProductCode;
+use App\ProductCodes as ProductCode;
 use App\Price;
 
 class ProductsController extends Controller

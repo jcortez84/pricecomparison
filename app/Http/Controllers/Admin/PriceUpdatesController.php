@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Datafeed;
 use App\Merchant;
 use App\Product;
-use App\ProductCode;
+use App\ProductCodes as ProductCode;
 use App\Price;
 use App\ProductImageLink;
 use App\Match;

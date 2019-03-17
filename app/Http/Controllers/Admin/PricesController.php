@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Price;
 use App\Product;
-use App\ProductCode;
+use App\ProductCodes as ProductCode;
 use App\ProductImageLink;
 use App\Brand;
 use App\Merchant;
