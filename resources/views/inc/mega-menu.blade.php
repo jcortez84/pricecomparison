@@ -2,10 +2,10 @@
   <div class="container-fluid bg-success">
     <div class="row">
       <div class="col-12">
-        <nav class="navbar navbar-expand-lg navbar-light bg-success ">
+        <nav class="navbar navbar-expand-lg navbar-light bg-success p-1">
           <div class="collapse navbar-collapse" id="navbarSC">
             <ul class="navbar-nav  mx-auto" >
-              <span class="border-right"></span>
+              <span class="border-right p-2"></span>
               <span class="border-right"></span>
               @foreach($categories as $category )
               <li class="pt-0 nav-item dropdown megamenu-li">
