@@ -8,7 +8,7 @@
                         <li class="breadcrumb-item active" aria-current="page">Retailers</li>
                 </ol>
         </nav>
-        <h1 class="lead">Retailers</h1>
+        <h1 class="h2 text-success">Retailers</h1>
                 <div class="row mb-3">
                         @foreach ($retailers as $retailer)
                 <div class="col-md-4"> <a class="text-dark" href="/retailer/{{$retailer->slug}}">{{ $retailer->name }}</a></div>
