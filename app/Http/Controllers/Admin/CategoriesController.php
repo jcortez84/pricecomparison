@@ -47,7 +47,7 @@ class CategoriesController extends Controller
             'blurb' => 'max:250',
             'slug' => 'required:max:100'
         ]);
-
+            dd($request);
         $category = new Category;
         $category->id = $request->input('id');
         $category->parent_id = $request->input('parent_id');
