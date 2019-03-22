@@ -13,7 +13,6 @@ class CreateProductCodesTable extends Migration
      */
     public function up()
     {
-        $this->down();
         Schema::create('product_codes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id');
