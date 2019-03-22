@@ -338,7 +338,7 @@ class DatafeedsController extends Controller
                         $product->category_id = $data[$feed->column_category_id]; //) || $data[$feed->column_category_id] > 999)?$data[$feed->column_category_id]:30;
 
                         $product->title = $data[$feed->column_name];
-                        $product->slug = $nextId.'_'.makeSlug($data[$feed->column_name]);
+                        $product->slug = $nextId.'-'.makeSlug($data[$feed->column_name]);
                         if($feed->column_mpn && $data[$feed->column_mpn]){
                             $product->mpn = $data[$feed->column_mpn];
                         }

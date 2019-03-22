@@ -52,7 +52,7 @@ class CategoriesController extends Controller
         $category->id = $request->input('id');
         $category->parent_id = $request->input('parent_id');
         $category->title = $request->input('title');
-        $category->slug = $request->input('slug');
+        $category->slug = makeSlug($request->input('slug'));
         $category->blurb = $request->input('blurb');
 
         $category->save();
@@ -102,7 +102,7 @@ class CategoriesController extends Controller
         $category->id = $request->input('id');
         $category->parent_id = $request->input('parent_id');
         $category->title = $request->input('title');
-        $category->slug = $request->input('slug');
+        $category->slug = makeSlug($request->input('slug'));
         $category->blurb = $request->input('blurb');
 
         $category->save();
@@ -158,7 +158,7 @@ class CategoriesController extends Controller
                 $cat->id = $data[0];
                 $cat->parent_id = $data[1];
                 $cat->title = $data[2];
-                $cat->slug = $this->makeSlug($data[2]);
+                $cat->slug = makeSlug($data[2]);
                 $cat->save();
             }
             $i++;

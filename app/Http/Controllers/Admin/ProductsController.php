@@ -69,7 +69,7 @@ class ProductsController extends Controller
         $product = new Product;
 
         $product->title = $request->input('title');
-        $product->slug = $nextId.'_'.makeSlug($product->title);
+        $product->slug = $nextId.'-'.makeSlug($product->title);
         $product->mpn = $request->input('mpn');
         $product->category_id = $request->input('cat_id');
         $product->ean = $request->input('ean');
