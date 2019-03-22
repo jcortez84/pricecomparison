@@ -136,6 +136,7 @@ class CategoriesController extends Controller
         $this->validate($request,[
             'file' => 'required|mimes:csv,txt'
         ]);
+        dd($request);
 
         if($request->hasFile('file'))
         {
