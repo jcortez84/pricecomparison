@@ -144,7 +144,8 @@ class CategoriesController extends Controller
             Category::truncate();
         }
 
-        //$file = $request->file('file');
+        $file = $request->file('file');
+        dd($file);
         $handle = fopen($file, 'r');
         $i = 0;
         while (($data = fgetcsv($handle, 0, ',')) !== FALSE){
