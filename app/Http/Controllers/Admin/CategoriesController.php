@@ -143,7 +143,6 @@ class CategoriesController extends Controller
 
             Category::truncate();
         }
-        dd($file);
 
         $file = $request->file('file');
         $handle = fopen($file, 'r');
