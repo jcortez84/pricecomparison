@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Merchant extends Model
 {
-    protected $primaryKey = 'mId';
+    protected $primaryKey = 'id';
     public $incrementing = false;
 
     public function products()

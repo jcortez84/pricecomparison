@@ -19,7 +19,7 @@
 <body>
     <div id="app">
         @include('inc.navigation')
-        <div class="container-fluid bg-success">
+        <div class="container-fluid bg-success mb-0">
             @include('inc.mega-menu')
         </div>
         
