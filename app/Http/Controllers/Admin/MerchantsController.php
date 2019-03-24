@@ -214,6 +214,7 @@ class MerchantsController extends Controller
                 $merchant->user_id = 1;
                 $merchant->name = $data[1];
                 $merchant->slug = makeSlug($data[1]);
+                $merchant->is_valid = 1;
                 $merchant->save();
             }
             $i++;
