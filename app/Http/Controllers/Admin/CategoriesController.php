@@ -162,7 +162,6 @@ class CategoriesController extends Controller
                 $cat->slug = makeSlug($data[2]);
                 
                 $cat->save();
-                dd($cat);
             }
             $i++;
         }
