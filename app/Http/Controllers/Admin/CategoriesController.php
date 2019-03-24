@@ -149,11 +149,12 @@ class CategoriesController extends Controller
 
         $i = 0;
         while (($data = fgetcsv($handle, 0, ',')) !== FALSE){
-            dd($data);
+
             if($i === 0){
 
             }else{
                 $cat = new Category;
+                dd($cat);
                 $cat->id = $data[0];
                 $cat->parent_id = $data[1];
                 $cat->title = $data[2];
