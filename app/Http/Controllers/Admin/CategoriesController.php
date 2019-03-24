@@ -154,11 +154,12 @@ class CategoriesController extends Controller
 
             }else{
                 $cat = new Category;
-                dd($cat);
+                
                 $cat->id = $data[0];
                 $cat->parent_id = $data[1];
                 $cat->title = $data[2];
                 $cat->slug = makeSlug($data[2]);
+                dd($cat);
                 $cat->save();
             }
             $i++;
