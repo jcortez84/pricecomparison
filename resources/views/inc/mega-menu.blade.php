@@ -10,7 +10,8 @@
               @foreach($categories as $category )
               <li class="pt-0 nav-item dropdown megamenu-li">
 
-                <a class="btn-success border-right text-uppercase text-white px-1" id="dropdown{{$category->id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span style="font-size:10px; font-weight:900">{{$category->title}}</span></a>
+                <a class="btn-success text-uppercase text-white px-1" id="dropdown{{$category->id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span style="font-size:10px; font-weight:900">{{$category->title}}</span></a>
+                <span class="border-right"></span>
                   <div class="dropdown-menu megamenu" aria-labelledby="dropdown{{$category->id}}">
                     <div class="row">
                       @foreach (App\Category::where('parent_id', $category->id)->get() as $child)
