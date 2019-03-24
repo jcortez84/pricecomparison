@@ -48,8 +48,8 @@ class CategoriesController extends Controller
             'slug' => 'required:max:100'
         ]);
         $category = new Category;
-        $category->id = $request->input('id');
-        $category->parent_id = $request->input('parent_id')??0;
+        $category->id = (int)$request->input('id');
+        $category->parent_id = (int)$request->input('parent_id')??0;
         $category->title = $request->input('title');
         $category->slug = makeSlug($request->input('slug'));
         $category->blurb = $request->input('blurb');
