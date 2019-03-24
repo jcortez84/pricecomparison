@@ -49,7 +49,7 @@ class MerchantsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'mId' => 'required|unique:merchants|max:10',
+            'id' => 'required|unique:merchants|max:10',
             'userId' => 'required',
             'name' => 'required|max:60',
             'url' => 'required',
@@ -62,7 +62,7 @@ class MerchantsController extends Controller
 
         $merchant = new Merchant;
 
-        $merchant->mId = $request->input('id');
+        $merchant->id = $request->input('id');
         $merchant->user_id = $request->input('userId');
         $merchant->name = $request->input('name');
         $merchant->slug = makeSlug($merchant->name);
