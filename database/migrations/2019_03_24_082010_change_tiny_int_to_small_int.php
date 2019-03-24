@@ -13,9 +13,15 @@ class ChangeTinyIntToSmallInt extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->tinyInteger('id')->smallInteger('id')->unsigned()->change();
-            $table->tinyInteger('parent_id')->smallInteger('parent_id')->unsigned()->change();
+        Schema::dropIfExists('categories');
+        Schema::create('categories', function (Blueprint $table) {
+            $table->smallInteger('id')->unsigned();
+            $table->smallInteger('parent_id')->unsigned();
+            $table->string('title');
+            $table->string('slug');
+            $table->string('blurb');
+            $table->integer('total_products');
+            $table->timestamps();
         });
     }
 
