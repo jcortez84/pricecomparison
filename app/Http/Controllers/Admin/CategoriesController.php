@@ -147,9 +147,9 @@ class CategoriesController extends Controller
         $file = $request->file('file');
         $handle = fopen($file, 'r');
 
-        dd($handle);
         $i = 0;
         while (($data = fgetcsv($handle, 0, ',')) !== FALSE){
+            dd($data);
             if($i === 0){
 
             }else{
