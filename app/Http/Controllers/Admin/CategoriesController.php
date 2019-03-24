@@ -159,8 +159,9 @@ class CategoriesController extends Controller
                 $cat->parent_id = $data[1];
                 $cat->title = $data[2];
                 $cat->slug = makeSlug($data[2]);
-                dd($cat);
+                
                 $cat->save();
+                dd($cat);
             }
             $i++;
         }
