@@ -173,7 +173,10 @@ class MerchantsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $merchant = Merchant::find($id);
+        $merchant->delete();
+
+        return redirect()->back()->with('success', 'Merchant '.$merchant->name.' has been deleted.');
     }
 
     /**
