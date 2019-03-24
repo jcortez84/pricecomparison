@@ -160,6 +160,8 @@ class CategoriesController extends Controller
                 $cat->parent_id = (int)$data[1];
                 $cat->title = $data[2];
                 $cat->slug = makeSlug($data[2]);
+                $cat->blurb = $data[2];
+                $cat->total_products = 0;
                 
                 $cat->save();
             }
