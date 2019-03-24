@@ -112,7 +112,7 @@ class MerchantsController extends Controller
      */
     public function edit($id)
     {
-        $merchant = Merchant::where('mId', $id)->first();
+        $merchant = Merchant::where('id', $id)->first();
         return view('admin.merchants.edit')->with('merchant', $merchant);
     }
 
@@ -136,7 +136,7 @@ class MerchantsController extends Controller
 
        // return $request;
 
-        $merchant = Merchant::where('mId', $id)->first();
+        $merchant = Merchant::where('id', $id)->first();
 
         $merchant->user_id = $request->input('userId');
         $merchant->name = $request->input('name');
