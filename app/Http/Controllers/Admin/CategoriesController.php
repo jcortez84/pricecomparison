@@ -53,7 +53,7 @@ class CategoriesController extends Controller
         $category->title = $request->input('title');
         $category->slug = makeSlug($request->input('slug'));
         $category->blurb = $request->input('blurb');
-        dd($category);
+        $category->total_products = 0;
         $category->save();
         return redirect('/admin/categories')->with('success', 'Category added.');
     }
@@ -103,6 +103,7 @@ class CategoriesController extends Controller
         $category->title = $request->input('title');
         $category->slug = makeSlug($request->input('slug'));
         $category->blurb = $request->input('blurb');
+        $category->total_products = 0;
 
         $category->save();
         return redirect('/admin/categories')->with('success', 'Category updated.');
