@@ -19,7 +19,12 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(10);
+        if(Request()->get('q')){
+            $categories = Category::where('title', 'like', '%'.Request()->get('q').'%')->paginate(10);
+        }else{
+            $categories = Category::paginate(10);
+        }
+        
         return view('admin.categories.index')->with('categories', $categories);
     }
 
