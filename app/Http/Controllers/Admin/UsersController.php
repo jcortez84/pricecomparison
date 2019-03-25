@@ -19,7 +19,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::with('roles')->paginate(10);
-       //dd($users);
+       
         return view('admin.users.index')->with('users', $users);
     }
 
@@ -63,7 +63,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::find($id);
+        return view('admin.users.edit')->with(compact('users'));
     }
 
     /**
