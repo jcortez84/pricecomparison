@@ -58,7 +58,7 @@ class MerchantsController extends Controller
 
         ]);
 
-       // return $request;
+        dd($request);
 
         $merchant = new Merchant;
 
