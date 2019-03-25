@@ -25,16 +25,16 @@
             @if (count($merchants) > 0)
               @foreach ($merchants as $merchant)
                 <tr>
-                  <td>{{ $merchant->mId }}</td>
-                  <td><img style="height:20px" src='{!!"/storage/merchants/$merchant->mId/$merchant->logo"!!}' alt="{!! $merchant->logo !!}">&nbsp;{{ $merchant->name }}</td>
+                  <td>{{ $merchant->id }}</td>
+                  <td><img style="height:20px" src='{!!"/storage/merchants/$merchant->id/$merchant->logo"!!}' alt="{!! $merchant->logo !!}">&nbsp;{{ $merchant->name }}</td>
                   <td>{{ $merchant->slug }}</td>
                   <td>{{ $merchant->email }}</td>
                   
                   <td>
-                    <a class="btn btn-sm btn-outline-info" href="/admin/merchants/{{ $merchant->mId }}/edit"><span data-feather="edit"></span></a>
-                    <a class="btn btn-sm btn-outline-warning" href="/admin/datafeeds?mId={{$merchant->mId}}"><span data-feather="zap"></a></span>
-                    <a class="btn btn-sm btn-outline-success" href="/admin/prices?mId={{$merchant->mId}}"><span data-feather="dollar-sign"></span></a>
-                    <a class="btn btn-sm btn-outline-dark" href="/admin/clicks?mId={{$merchant->mId}}"><span data-feather="activity"></span></a>
+                    <a class="btn btn-sm btn-outline-info" href="/admin/merchants/{{ $merchant->id }}/edit"><span data-feather="edit"></span></a>
+                    <a class="btn btn-sm btn-outline-warning" href="/admin/datafeeds?mId={{$merchant->id}}"><span data-feather="zap"></a></span>
+                    <a class="btn btn-sm btn-outline-success" href="/admin/prices?mId={{$merchant->id}}"><span data-feather="dollar-sign"></span></a>
+                    <a class="btn btn-sm btn-outline-dark" href="/admin/clicks?mId={{$merchant->id}}"><span data-feather="activity"></span></a>
                     <a class="btn btn-sm btn-outline-danger" href=""><span data-feather="trash"></span></a>
                   </td>
                 </tr>

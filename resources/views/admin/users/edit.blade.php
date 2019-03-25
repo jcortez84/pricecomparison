@@ -5,22 +5,18 @@
         <h1 class="h2">Edit User</h1>
       </div>
       <div class="container">
-        {!! Form::open(['action' => 'Admin\UsersController@store', 'method' => 'POST']) !!}
+        {!! Form::open(['action' => ['Admin\UsersController@update', $user->id], 'method' => 'PUT']) !!}
         <div class="form-group">
           {!! Form::label('Roles:') !!}
-          {!! Form::select('roles',[$roles], null, ['class' => 'form-control']); !!}
+          {!! Form::select('role',$roles, $user_role->role_id, ['class' => 'form-control']); !!}
         </div>
         <div class="form-group">
           {!! Form::label('Name:') !!}
-          {!! Form::text('name','', ['class' => 'form-control', 'placeholder' => 'Joe Bloggs']); !!}
+          {!! Form::text('name', $user->name, ['class' => 'form-control', 'placeholder' => 'Joe Bloggs']); !!}
         </div>
         <div class="form-group">
           {!! Form::label('Email:') !!}
-          {!! Form::text('email', '', ['class' => 'form-control', 'placeholder' => 'jbloggs@example.com']) !!}
-        </div>
-        <div class="form-group">
-          {!! Form::label('Password:') !!}
-          {!! Form::text('password', '', ['class' => 'form-control', 'placeholder' => '1331873761221']) !!}
+          {!! Form::text('email', $user->email, ['class' => 'form-control', 'placeholder' => 'jbloggs@example.com']) !!}
         </div>
         
         {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}

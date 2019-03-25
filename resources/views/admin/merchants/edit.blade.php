@@ -8,14 +8,14 @@
         </div>
       </div>
       <div class="container">
-        {!! Form::open(['action' => ['Admin\MerchantsController@update', $merchant->mId], 'enctype' => 'multipart/form-data', 'files' => true, 'method' => 'PUT']) !!}
+        {!! Form::open(['action' => ['Admin\MerchantsController@update', $merchant->id], 'enctype' => 'multipart/form-data', 'files' => true, 'method' => 'PUT']) !!}
         <div class="form-group">
           {!! Form::label('Merchant ID:') !!}
-          {!! Form::text('id', $merchant->mId, [ 'class'=>"form-control", 'readonly']); !!}
+          {!! Form::text('id', $merchant->id, [ 'class'=>"form-control", 'readonly']); !!}
         </div>
         <div class="form-group">
           {!! Form::label('Owner:') !!}
-          {!! Form::select('userId', [1 => 'Admin'], $merchant->userId, ['class' => 'form-control']); !!}
+          {!! Form::select('userId', [1 => 'Admin'], $merchant->user_id, ['class' => 'form-control']); !!}
         </div>
         <div class="form-group">
           {!! Form::label('Merchant Name:') !!}

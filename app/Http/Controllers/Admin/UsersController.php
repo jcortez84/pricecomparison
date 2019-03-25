@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Role;
 use App\RoleUser;
@@ -68,7 +69,8 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $roles = Role::all()->pluck('name', 'id');
-        return view('admin.users.edit')->with(compact('user', 'roles'));
+        $user_role = RoleUser::where('user_id', $id)->first();
+        return view('admin.users.edit')->with(compact('user', 'roles','user_role'));
     }
 
     /**
@@ -80,7 +82,22 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'role' => 'required',
+            'name' => 'required',
+            'email' => 'required'
+        ]);
+
+        $user = User::find($id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->save();
+
+        $role = RoleUser::where('user_id', $id)->first();
+        $role->role_id = $request->input('role');
+        $role->save();
+
+        return redirect()->back()->with('success', 'User has been updated');
     }
 
     /**

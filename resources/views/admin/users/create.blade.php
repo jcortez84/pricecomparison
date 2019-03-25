@@ -8,7 +8,7 @@
         {!! Form::open(['action' => 'Admin\UsersController@store', 'method' => 'POST']) !!}
         <div class="form-group">
           {!! Form::label('Roles:') !!}
-          {!! Form::select('roles',[$roles], null, ['class' => 'form-control']); !!}
+          {!! Form::select('role',$roles, null, ['class' => 'form-control']); !!}
         </div>
         <div class="form-group">
           {!! Form::label('Name:') !!}

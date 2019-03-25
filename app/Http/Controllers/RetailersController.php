@@ -17,7 +17,7 @@ class RetailersController extends Controller
     {
         $retailers = Merchant::orderBy('name', 'asc')->paginate(30);
         $categories = Category::where('parent_id', 0)->get();
-        return view('shopfront.retailers.index')->with(compact('retailers', $retailers, 'categories', $categories));
+        return view('shopfront.retailers.index')->with(compact('retailers', 'categories'));
     }
 
     /**

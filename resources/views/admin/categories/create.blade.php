@@ -4,11 +4,11 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Add a category</h1>
       </div>
-      <div class="container">
+      <div class="container mb-5">
         {!! Form::open(['action' => 'Admin\CategoriesController@store', 'method' => 'POST']) !!}
         <div class="form-group">
           {!! Form::label('Parent Category:') !!}
-          {!! Form::select('parent_id', [$categories], '', ['class' => 'form-control']) !!}
+          {!! Form::select('parent_id', [0 => '--- Root ---',$categories], '', ['class' => 'form-control']) !!}
         </div>
         <div class="form-group">
           {!! Form::label('Category ID:') !!}

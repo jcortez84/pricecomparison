@@ -21,7 +21,7 @@ class PricesController extends Controller
         $this->prod_id = $prod_id;
 
         $prices = Price::join('merchants', function ($join) {
-            $join->on('prices.merchant_id', '=', 'merchants.mId')
+            $join->on('prices.merchant_id', '=', 'merchants.id')
                  ->where('product_id', $this->prod_id);
         })->orderBy('amount', 'asc')->get();
         return response($prices, 200);
