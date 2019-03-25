@@ -26,8 +26,7 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td></td>
-                {{-- <td>{{ $user->roles[0]->name }}</td> --}}
+                <td>{{ $user->roles[0]->name }}</td>
                 <td>
                   <a href="/admin/users/{{ $user->id }}/edit"><span data-feather="edit"></span></a>
                   <a href=""><span data-feather="zap"></a></span>
