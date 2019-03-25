@@ -63,7 +63,7 @@ class MerchantsController extends Controller
         $merchant = new Merchant;
 
         $merchant->id = $request->input('id');
-        $merchant->user_id = $request->input('userId');
+        $merchant->user_id = (int)$request->input('userId');
         $merchant->name = $request->input('name');
         $merchant->slug = makeSlug($merchant->name);
         $merchant->url = $request->input('url');
@@ -75,7 +75,7 @@ class MerchantsController extends Controller
         $merchant->post_code = $request->input('post_code');
         $merchant->strapline = $request->input('strapline');
         $merchant->description = $request->input('description');
-        $merchant->is_valid = $request->input('is_valid');
+        $merchant->is_valid = (int)$request->input('is_valid');
         if($request->hasFile('logo')){
             //get the file extension
             $ext = $request->file('logo')->getClientOriginalExtension();
