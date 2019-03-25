@@ -19,7 +19,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::with('roles')->paginate(10);
-       dd($users);
+       //dd($users);
         return view('admin.users.index')->with('users', $users);
     }
 

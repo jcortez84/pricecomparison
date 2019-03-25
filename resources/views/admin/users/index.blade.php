@@ -26,7 +26,8 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td>{{ $user->roles[0]->name }}</td>
+                <td>{{ App\UserRole::find($user->id)}}</td>
+                {{-- <td>{{ $user->roles[0]->name }}</td> --}}
                 <td>
                   <a href="/admin/users/{{ $user->id }}/edit"><span data-feather="edit"></span></a>
                   <a href=""><span data-feather="zap"></a></span>
