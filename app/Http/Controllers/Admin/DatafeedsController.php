@@ -30,8 +30,9 @@ class DatafeedsController extends Controller
     public function index()
     {
         if($mId = Request()->get('mId')){
-            dd($mId);
-            $datafeeds = Datafeed::where('merchant_id', '=', $mId)->paginate(10);
+            
+            $datafeeds = Datafeed::where('merchant_id', $mId)->paginate(10);
+            dd($datafeeds);
         }else{
             $datafeeds = Datafeed::paginate(10);
         }
