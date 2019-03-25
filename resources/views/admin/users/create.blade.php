@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
           {!! Form::label('Password:') !!}
-          {!! Form::text('password', '', ['class' => 'form-control', 'placeholder' => '1331873761221']) !!}
+          {!! Form::password('password', '', ['class' => 'form-control', 'placeholder' => 'password']) !!}
         </div>
         
         {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
