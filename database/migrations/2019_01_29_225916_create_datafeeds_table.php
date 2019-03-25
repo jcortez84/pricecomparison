@@ -17,10 +17,10 @@ class CreateDatafeedsTable extends Migration
             $table->increments('id');
             $table->string('merchant_id');
             $table->string('url');
-            $table->tinyInteger('column_title')->unsigned();
-            $table->tinyInteger('column_price')->unsigned();
+            $table->tinyInteger('column_title')->unsigned()->nullable();
+            $table->tinyInteger('column_price')->unsigned()->nullable();
             $table->tinyInteger('column_shipping')->unsigned()->nullable();
-            $table->tinyInteger('column_url')->unsigned();
+            $table->tinyInteger('column_url')->unsigned()->nullable();
             $table->tinyInteger('column_promo')->unsigned()->nullable();
             $table->tinyInteger('column_mpn')->unsigned()->nullable();
             $table->tinyInteger('column_upc')->unsigned()->nullable();
