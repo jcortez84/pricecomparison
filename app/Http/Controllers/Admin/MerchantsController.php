@@ -58,8 +58,6 @@ class MerchantsController extends Controller
 
         ]);
 
-        dd($request);
-
         $merchant = new Merchant;
 
         $merchant->id = $request->input('id');
@@ -86,6 +84,7 @@ class MerchantsController extends Controller
             $merchant->logo = $logo_path;
         }
         
+        dd($merchant);
 
         $merchant->save();
         return redirect('/admin/merchants')->with('success', 'Listing added.');
