@@ -25,4 +25,5 @@
         
         {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
 
-        {!!
+        {!! Form::close() !!}
+      </div>
