@@ -30,12 +30,13 @@ class DatafeedsController extends Controller
     public function index()
     {
         if($mId = Request()->get('mId')){
+            dd($mId);
             $datafeeds = Datafeed::where('merchant_id', '=', $mId)->paginate(10);
         }else{
             $datafeeds = Datafeed::paginate(10);
         }
         
-        return view('admin.datafeeds.index')->with(compact('datafeeds', $datafeeds, 'mId', $mId));
+        return view('admin.datafeeds.index')->with(compact('datafeeds', 'mId'));
     }
 
     /**
@@ -46,9 +47,9 @@ class DatafeedsController extends Controller
     public function create()
     {
         $mId = Request()->get('mId');
-        $merchants = Merchant::orderBy('name', 'asc')->pluck('name', 'mId');
+        $merchants = Merchant::orderBy('name', 'asc')->pluck('name', 'id');
 
-        return view('admin.datafeeds.create')->with(compact('merchants', $merchants, 'mId', $mId));
+        return view('admin.datafeeds.create')->with(compact('merchants', 'mId'));
     }
 
     /**
