@@ -20,10 +20,11 @@
         </div>
         <div class="form-group">
           {!! Form::label('Password:') !!}
-          {!! Form::password('password', '', ['class' => 'form-control', 'placeholder' => 'password']) !!}
+          {!! Form::text('password', '', ['class' => 'form-control', 'placeholder' => 'password']) !!}
         </div>
         
         {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
 
         {!! Form::close() !!}
       </div>
+@endsection
