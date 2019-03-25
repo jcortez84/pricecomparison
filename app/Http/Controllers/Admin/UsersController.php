@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Role;
 class UsersController extends Controller
 {
     public function __construct()
@@ -64,7 +65,8 @@ class UsersController extends Controller
     public function edit($id)
     {
         $users = User::find($id);
-        return view('admin.users.edit')->with(compact('users'));
+        $roles = Role::all()->pluck('name', 'id');
+        return view('admin.users.edit')->with(compact('users', 'roles'));
     }
 
     /**
