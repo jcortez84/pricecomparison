@@ -66,6 +66,11 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
+
+        $manager = new RoleUser;
+        $manager->role_id = 1;
+        $manager->user_id = 1;
+        $manager->save();
         $users = User::find($id);
         $roles = Role::all()->pluck('name', 'id');
         return view('admin.users.edit')->with(compact('users', 'roles'));
