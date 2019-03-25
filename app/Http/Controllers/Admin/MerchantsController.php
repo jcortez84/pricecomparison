@@ -84,7 +84,7 @@ class MerchantsController extends Controller
             $merchant->logo = $logo_path;
         }
         
-        dd($merchant);
+        //dd($merchant);
 
         $merchant->save();
         return redirect('/admin/merchants')->with('success', 'Listing added.');
