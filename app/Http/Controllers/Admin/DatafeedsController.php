@@ -71,7 +71,7 @@ class DatafeedsController extends Controller
 
         $feed->merchant_id = $request->input('merchantId');
         $feed->url = $request->input('feed_url');
-
+            dd($request);
         $feed->save();
 
         return redirect()->back()->with('success', 'Datafeed successfully added.');
