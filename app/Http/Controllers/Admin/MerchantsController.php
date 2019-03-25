@@ -213,6 +213,11 @@ class MerchantsController extends Controller
             if($i === 0){
 
             }else{
+                $m = Merchant::find($request->affiliate.''.$data[0]);
+                if($m){
+                    echo 'Duplicate record skipped';
+                }else{
+
                 $merchant = new Merchant;
                 $merchant->id = $request->affiliate.''.$data[0];
                 $merchant->user_id = 1;
@@ -220,6 +225,7 @@ class MerchantsController extends Controller
                 $merchant->slug = makeSlug($data[1]);
                 $merchant->is_valid = 1;
                 $merchant->save();
+                }
             }
             $i++;
         }
