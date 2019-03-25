@@ -58,6 +58,12 @@ class MerchantsController extends Controller
 
         ]);
 
+        $m = Merchant::find($request->input('id'));
+        if($m){
+            echo 'This record is a duplicte';
+        }else{
+
+        
         $merchant = new Merchant;
 
         $merchant->id = $request->input('id');
@@ -83,10 +89,9 @@ class MerchantsController extends Controller
             $logo_path = 'storage/merchants/'.$request->input('id').'/'.$filename_save;
             $merchant->logo = $logo_path;
         }
-        
-        //dd($merchant);
 
         $merchant->save();
+    }
         return redirect('/admin/merchants')->with('success', 'Listing added.');
 
     }
