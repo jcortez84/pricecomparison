@@ -17,8 +17,8 @@ class CreateClicksTable extends Migration
             $table->increments('id');
             $table->string('merchant_id');
             $table->string('ip_address');
-            $table->integer('product_id');
-            $table->integer('price_id');
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('price_id');
             $table->timestamps();
         });
     }

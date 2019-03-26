@@ -14,8 +14,8 @@ class CreateProductImageLinksTable extends Migration
     public function up()
     {
         Schema::create('product_image_links', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('product_id')->nullable();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('product_id');
             $table->string('merchant_id', 10)->nullable();
             $table->string('download_path');
             $table->enum('is_downloaded', [0,1]);

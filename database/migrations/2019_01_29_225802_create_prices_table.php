@@ -14,14 +14,14 @@ class CreatePricesTable extends Migration
     public function up()
     {
         Schema::create('prices', function (Blueprint $table) {
-            $table->increments('id', 15);
-            $table->integer('product_id')->unsigned();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('product_id');
             $table->string('merchant_id', 11);
             $table->unsignedDecimal('amount', 9,2);
-            $table->unsignedDecimal('shipping', 9,2);
+            $table->unsignedDecimal('shipping', 9,2)->nullable();
             $table->string('product_title');
-            $table->string('promo_text');
-            $table->string('buy_link');
+            $table->string('promo_text')->nullable();
+            $table->string('buy_link')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

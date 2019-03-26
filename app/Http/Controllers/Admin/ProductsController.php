@@ -150,15 +150,27 @@ class ProductsController extends Controller
         //Set the product minimum and maximum prices
         $this->set_min_max_price($product->id);
         
-        $pc = ProductCode::find($product->id);
-        dd($pc);
-        $pc->mpn = $product->mpn;
-        $pc->ean = $product->ean;
-        $pc->upc = $product->upc;
-        $pc->gtin = $product->gtin;
-        $pc->isbn = $product->isbn;
-        dd($pc);
-        $pc->save();
+        $pc = ProductCode::where('product_id',$product->id)->orderBy('id', 'ASC')->first();
+            if($pc){
+                $pc->mpn = $product->mpn;
+                $pc->ean = $product->ean;
+                $pc->upc = $product->upc;
+                $pc->gtin = $product->gtin;
+                $pc->isbn = $product->isbn;
+                
+                $pc->save();
+            }else{
+                $pc = new ProductCode;
+                $pc->product_id = $product->id;
+                $pc->mpn = $product->mpn;
+                $pc->ean = $product->ean;
+                $pc->upc = $product->upc;
+                $pc->gtin = $product->gtin;
+                $pc->isbn = $product->isbn;
+                
+                $pc->save();
+            }
+        
 
         return redirect('/admin/products')->with('success', 'Product updated');
     }

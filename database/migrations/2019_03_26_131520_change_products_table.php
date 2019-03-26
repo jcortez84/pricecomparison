@@ -15,7 +15,7 @@ class ChangeProductsTable extends Migration
     {
         $this->down();
         Schema::create('products', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->integer('category_id');
             $table->string('title');
             $table->string('slug');

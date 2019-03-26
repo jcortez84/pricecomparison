@@ -15,12 +15,12 @@ class CreateProductCodesTable extends Migration
     {
         Schema::create('product_codes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id');
-            $table->string('mpn');
-            $table->string('gtin');
-            $table->string('ean');
-            $table->string('isbn');
-            $table->string('upc');
+            $table->bigInteger('product_id');
+            $table->string('mpn')->nullable();
+            $table->string('gtin')->nullable();
+            $table->string('ean')->nullable();
+            $table->string('isbn')->nullable();
+            $table->string('upc')->nullable();
             $table->timestamps();
         });
     }
