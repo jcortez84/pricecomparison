@@ -156,6 +156,7 @@ class ProductsController extends Controller
         $pc->upc = $product->upc;
         $pc->gtin = $product->gtin;
         $pc->isbn = $product->isbn;
+        dd($pc);
         $pc->save();
 
         return redirect('/admin/products')->with('success', 'Product updated');
