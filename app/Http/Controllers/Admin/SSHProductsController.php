@@ -257,5 +257,17 @@ class SSHProductsController extends Controller
          unlink($images_file);
          unlink($products_file);
     }
+
+    /**
+     * Run all
+     */
+    public function runAll()
+    {
+        $feeds = Datafeed::all();
+
+        foreach($feeds as $feed){
+            echo $feed->id;
+        }
+    }
 }
 
