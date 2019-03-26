@@ -236,6 +236,7 @@ class DatafeedsController extends Controller
         }
         $feed->add_new_products = $request->add_new_products;
         $feed->match_by = $request->match_by;
+        dd($feed);
         $feed->save();
         return redirect('/admin/datafeeds')->with('success', 'Datafeed Parameters Added Successfully!');
     }
