@@ -146,7 +146,6 @@ class ProductsController extends Controller
         $product->gtin = $request->input('gtin');
         $product->isbn = $request->input('isbn');
         $product->description = $request->input('description');
-            dd($product);
         $product->save();
         //Set the product minimum and maximum prices
         $this->set_min_max_price($product->id);
