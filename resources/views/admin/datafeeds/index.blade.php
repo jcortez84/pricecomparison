@@ -18,6 +18,8 @@
                     <th>#</th>
                     <th>Merchant ID</th>
                     <th>Remote URL</th>
+                    <th>Match</th>
+                    <th>Add new products</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -27,7 +29,8 @@
                   <td>{{ $datafeed->id }}</td>
                   <td>{{ $datafeed->merchant_id }}</td>
                   <td>{{ str_limit($datafeed->url, 50, '....') }}</td>
-                  {{-- <td>{{ $datafeed->match }}</td> --}}
+                  <td>{{ $datafeed->match_by }}</td>
+                  <td>{{ $datafeed->add_new_products }}</td>
                   
                   <td>
                     <a class="btn btn-sm btn-outline-info" href="/admin/datafeeds/{{ $datafeed->id }}/edit"><span data-feather="edit"></span></a>
