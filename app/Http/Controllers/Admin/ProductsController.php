@@ -67,7 +67,6 @@ class ProductsController extends Controller
         ]);
         $nextId = Product::max('id')+1;
         $product = new Product;
-            dd($product);
         $product->title = $request->input('title');
         $product->slug = $nextId.'-'.makeSlug($product->title);
         $product->mpn = $request->input('mpn');
