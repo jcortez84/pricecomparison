@@ -148,7 +148,7 @@ class ProductsController extends Controller
         $product->description = $request->input('description');
         $product->save();
         //Set the product minimum and maximum prices
-        $this->set_min_max_price($product->id);
+      //  $this->set_min_max_price($product->id);
         
         $pc = ProductCode::find($product->id);
         $pc->mpn = $product->mpn;
