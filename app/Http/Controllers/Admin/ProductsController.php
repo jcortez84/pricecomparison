@@ -78,7 +78,7 @@ class ProductsController extends Controller
         $product->description = $request->input('description');
         $product->min_price = (float)$request->input('min_price');
         $product->max_price = (float)$request->input('max_price');
-
+        dd($product);
         $product->save();
 
         $pc = new ProductCode;
@@ -146,7 +146,7 @@ class ProductsController extends Controller
         $product->gtin = $request->input('gtin');
         $product->isbn = $request->input('isbn');
         $product->description = $request->input('description');
-
+            dd($product);
         $product->save();
         //Set the product minimum and maximum prices
         $this->set_min_max_price($product->id);
