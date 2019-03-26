@@ -151,7 +151,6 @@ class ProductsController extends Controller
         $this->set_min_max_price($product->id);
         
         $pc = ProductCode::where('product_id',$product->id)->orderBy('id', 'ASC')->first();
-        dd($pc);
             if($pc){
                 $pc->mpn = $product->mpn;
                 $pc->ean = $product->ean;
@@ -168,6 +167,7 @@ class ProductsController extends Controller
                 $pc->upc = $product->upc;
                 $pc->gtin = $product->gtin;
                 $pc->isbn = $product->isbn;
+                dd($pc);
                 
                 $pc->save();
             }
