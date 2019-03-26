@@ -190,7 +190,7 @@ class DatafeedsController extends Controller
             if(isset($value)){
                 switch ($value) {
                     case 'productName':
-                        $feed->column_name = $key;
+                        $feed->column_title = $key;
                         break;
                     case 'productDesc':
                         $feed->column_description = $key;
@@ -208,7 +208,7 @@ class DatafeedsController extends Controller
                         $feed->column_shipping = $key;
                         break;
                     case 'buyUrl':
-                        $feed->column_buy_url = $key;
+                        $feed->column_url = $key;
                         break;
                     case 'promoText':
                         $feed->column_promo = $key;
