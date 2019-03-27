@@ -95,7 +95,7 @@ class SSHProductsController extends Controller
             $upc = null;
             $ean = null;
             
-                dd($data);
+                
                 /**
                  * Now we check if the brand column isset in feed parameters
                  * If isset we check if the value  is in csv file,

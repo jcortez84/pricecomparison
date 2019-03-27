@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBrandsTable extends Migration
+class ChangeBrandsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,6 +13,7 @@ class CreateBrandsTable extends Migration
      */
     public function up()
     {
+        $this->down();
         Schema::create('brands', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
