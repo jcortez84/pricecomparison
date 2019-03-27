@@ -30,8 +30,6 @@ class SSHProductsController extends Controller
 
         $feed = Datafeed::find($id);
 
-        $infile_path = 'storage/feed';
-
         /**
          * Merchant ID is set here
          */
@@ -42,6 +40,8 @@ class SSHProductsController extends Controller
          */
         $url = $feed->url;
 
+        $infile_path = 'storage/feed';
+  
         /**
          * Now we create the merchant autofeed
          * folder if it does not exist
@@ -225,25 +225,29 @@ class SSHProductsController extends Controller
         DB::connection()->getpdo()->exec('SET autocommit=0'); 
         DB::connection()->getpdo()->exec('SET unique_checks=0'); 
         DB::connection()->getpdo()->exec('SET foreign_key_checks=0');
-        
-        $prod_query = "LOAD DATA LOCAL INFILE '" . $products_file . "'
-        INTO TABLE products FIELDS TERMINATED BY '|'
-            (id,category_id,title,slug,mpn,ean,upc,gtin,isbn,description,min_price,max_price,brand_id,@created_at,@updated_at)
-            SET created_at=NOW(), updated_at=NOW()";
-        DB::connection()->getpdo()->exec($prod_query);
 
-        $prod_codes_query = "LOAD DATA LOCAL INFILE '" . $product_codes_file . "'
-        INTO TABLE product_codes FIELDS TERMINATED BY '|'
-            (product_id,mpn,gtin,ean,isbn,upc,@created_at,@updated_at)
-            SET created_at=NOW(), updated_at=NOW()";
-        DB::connection()->getpdo()->exec($prod_codes_query);
-
-        $image_query = "LOAD DATA LOCAL INFILE '" . $images_file . "'
-        INTO TABLE product_image_links FIELDS TERMINATED BY '|'
-            (product_id,merchant_id,download_path,@created_at,@updated_at)
-            SET created_at=NOW(), updated_at=NOW()";
-        DB::connection()->getpdo()->exec($image_query);
-
+        if(file_exists($products_file)){
+            $prod_query = "LOAD DATA LOCAL INFILE '" . $products_file . "'
+            INTO TABLE products FIELDS TERMINATED BY '|'
+                (id,category_id,title,slug,mpn,ean,upc,gtin,isbn,description,min_price,max_price,brand_id,@created_at,@updated_at)
+                SET created_at=NOW(), updated_at=NOW()";
+            DB::connection()->getpdo()->exec($prod_query);
+    
+        }
+        if(file_exists($product_codes_file)){
+            $prod_codes_query = "LOAD DATA LOCAL INFILE '" . $product_codes_file . "'
+            INTO TABLE product_codes FIELDS TERMINATED BY '|'
+                (product_id,mpn,gtin,ean,isbn,upc,@created_at,@updated_at)
+                SET created_at=NOW(), updated_at=NOW()";
+            DB::connection()->getpdo()->exec($prod_codes_query);
+        }
+        if(file_exists($images_file)){
+            $image_query = "LOAD DATA LOCAL INFILE '" . $images_file . "'
+            INTO TABLE product_image_links FIELDS TERMINATED BY '|'
+                (product_id,merchant_id,download_path,@created_at,@updated_at)
+                SET created_at=NOW(), updated_at=NOW()";
+            DB::connection()->getpdo()->exec($image_query);
+        }
         DB::connection()->getpdo()->exec('SET autocommit=1'); 
         DB::connection()->getpdo()->exec('SET unique_checks=1'); 
         DB::connection()->getpdo()->exec('SET foreign_key_checks=1');
@@ -252,10 +256,10 @@ class SSHProductsController extends Controller
          * Now process the file 
          * Add prices to the database;
          */
-
-         unlink($product_codes_file);
-         unlink($images_file);
-         unlink($products_file);
+        
+         @unlink($product_codes_file);
+         @unlink($images_file);
+         @unlink($products_file);
     }
 
     /**
@@ -264,7 +268,6 @@ class SSHProductsController extends Controller
     public function runAll()
     {
         $feeds = Datafeed::all();
-        //dd($feeds);
         foreach($feeds as $feed){
             $this->run($feed->id);
         }
