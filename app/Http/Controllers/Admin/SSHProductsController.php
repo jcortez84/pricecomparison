@@ -29,7 +29,7 @@ class SSHProductsController extends Controller
         ini_set('max_execution_time', 0); //No limit
 
         $feed = Datafeed::find($id);
-
+dd($feed);
         /**
          * Merchant ID is set here
          */
