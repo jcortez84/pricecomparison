@@ -253,9 +253,9 @@ class SSHProductsController extends Controller
          * Add prices to the database;
          */
 
-        //  unlink($product_codes_file);
-        //  unlink($images_file);
-        //  unlink($products_file);
+         unlink($product_codes_file);
+         unlink($images_file);
+         unlink($products_file);
     }
 
     /**
