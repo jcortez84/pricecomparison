@@ -71,11 +71,10 @@ class SSHProductsController extends Controller
             //unlink($dest.'/feed');
         }
 
-        dd($dest.'/'.$fname);
         /**
          * Open the datafile with fopen and create a handle
          */
-        $phandle = fopen($dest.'/'.$fname, 'r');
+        $handle = fopen($dest.'/'.$fname, 'r');
         /**
          * Initiate counter that is used to skip hearders
          */
@@ -88,7 +87,7 @@ class SSHProductsController extends Controller
         $flag = true;
 
         
-        while (($data = fgetcsv($phandle, 0, ',')) !== FALSE){
+        while (($data = fgetcsv($handle, 0, ',')) !== FALSE){
             if($flag) { $flag = false; continue; }
             $isbn = null;
             $mpn = null;
@@ -96,7 +95,7 @@ class SSHProductsController extends Controller
             $upc = null;
             $ean = null;
             
-                //dd($data);
+                dd($data);
                 /**
                  * Now we check if the brand column isset in feed parameters
                  * If isset we check if the value  is in csv file,
@@ -214,7 +213,7 @@ class SSHProductsController extends Controller
                 }
         
             }
-            fclose($phandle);
+            fclose($handle);
                     
         /**
          * Now lets load_data_infile
