@@ -70,6 +70,8 @@ class SSHProductsController extends Controller
             $zip->close();
             //unlink($dest.'/feed');
         }
+
+        dd($dest.'/'.$fname);
         /**
          * Open the datafile with fopen and create a handle
          */
