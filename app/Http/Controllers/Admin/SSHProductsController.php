@@ -66,7 +66,7 @@ class SSHProductsController extends Controller
             $zip->renameName($zip->getNameIndex(0), $fname);
             $zip->extractTo($dest, $fname);
             $zip->close();
-            //unlink($dest.'/feed');
+            unlink($dest.'/feed');
         }
         /**
          * Open the datafile with fopen and create a handle
@@ -253,9 +253,9 @@ class SSHProductsController extends Controller
          * Add prices to the database;
          */
 
-         unlink($product_codes_file);
-         unlink($images_file);
-         unlink($products_file);
+        //  unlink($product_codes_file);
+        //  unlink($images_file);
+        //  unlink($products_file);
     }
 
     /**
