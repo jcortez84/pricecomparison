@@ -73,6 +73,11 @@ class PriceUpdatesController extends Controller
          * Open the datafile with fopen and create a handle
          */
         $ohandle = fopen($dest.'/'.$fname, 'r');
+
+        /**
+         * Next ID for new price
+         */
+        $newPriceId = Price::max('id')+1;
          /**
           * No we add prices
           */
@@ -127,10 +132,10 @@ class PriceUpdatesController extends Controller
  
                             $price_path = $infile_path.'/new_'.$mId.'.csv';
 
-                            $new_price_data = $prod_id.'|'.$mId.'|'.$price_column.'|'.$shipping_column.'|'.$name_column.'|'.$promo_column.'|'.$buy_url_column."\r\n";
+                            $new_price_data = $newPriceId.'|'.$prod_id.'|'.$mId.'|'.$price_column.'|'.$shipping_column.'|'.$name_column.'|'.$promo_column.'|'.$buy_url_column."\r\n";
 
                             file_put_contents($price_path, trim($new_price_data).PHP_EOL, FILE_APPEND);
-
+                            $newPriceId++;
                         }else{
 
                             $update_path = $infile_path.'/old_'.$price->merchant_id.'.csv';

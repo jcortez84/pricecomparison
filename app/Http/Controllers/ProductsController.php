@@ -49,14 +49,12 @@ class ProductsController extends Controller
     public function goToStore($id)
     {
         $price = Price::find($id);
-
-        
         $click = new Click;
         $click->merchant_id = $price->merchant_id;
         $click->ip_address = Request()->ip();
         $click->product_id = $price->product_id;
         $click->price_id = $id;
-        //dd(Request()->ip());
+
         $click->save();
         return redirect($price->buy_link);
     }
