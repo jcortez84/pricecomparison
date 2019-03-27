@@ -29,7 +29,6 @@ class SSHProductsController extends Controller
         ini_set('max_execution_time', 0); //No limit
 
         $feed = Datafeed::find($id);
-dd($feed);
         /**
          * Merchant ID is set here
          */
@@ -55,7 +54,7 @@ dd($feed);
          * Download the latest datafeed from merchant 
          * and copy to our newly created folder / server
          */
-         //copy($url, $dest.'/feed');
+         copy($url, $dest.'/feed');
          $fname = 'datafeed.csv';
 
         /**
