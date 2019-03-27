@@ -5,8 +5,10 @@
         <h1 class="h2">Merchants</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="mr-2">
-          <a href="{{ url('/admin/merchants/create') }}" class="btn btn-info">Add a merchant</a>
-          <a href="{{ url('/admin/merchants-csv') }}" class="btn btn-primary">Import merchants from CSV</a>
+              <a href="{{ url('/admin/products-ssh-all') }}" class="btn btn-success">Add new products by SSH</a>
+              <a href="{{ url('/admin/prices-ssh-all') }}" class="btn btn-warning">Update prices by SSH</a>
+              <a href="{{ url('/admin/merchants/create') }}" class="btn btn-info">Add a merchant</a>
+              <a href="{{ url('/admin/merchants-csv') }}" class="btn btn-primary">Import merchants from CSV</a>
           </div>
         </div>
       </div>
@@ -33,7 +35,8 @@
                   <td>
                     <a class="btn btn-sm btn-outline-info" href="/admin/merchants/{{ $merchant->id }}/edit"><span data-feather="edit"></span></a>
                     <a class="btn btn-sm btn-outline-warning" href="/admin/datafeeds?mId={{$merchant->id}}"><span data-feather="zap"></a></span>
-                    <a class="btn btn-sm btn-outline-success" href="/admin/prices?mId={{$merchant->id}}"><span data-feather="dollar-sign"></span></a>
+                    <a class="btn btn-sm btn-outline-primary" href="/admin/products-ssh/{{$merchant->id}}/run"><span data-feather="shopping-cart"></a></span>
+                    <a class="btn btn-sm btn-outline-success" href="/admin/prices-ssh/{{$merchant->id}}/run"><span data-feather="dollar-sign"></span></a>
                     <a class="btn btn-sm btn-outline-dark" href="/admin/clicks?mId={{$merchant->id}}"><span data-feather="activity"></span></a>
                     <a class="btn btn-sm btn-outline-danger" href=""><span data-feather="trash"></span></a>
                   </td>

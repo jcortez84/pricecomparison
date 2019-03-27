@@ -24,8 +24,7 @@
                   <th>UPC</th>
                   <th>GTIN</th>
                   <th>ISBN</th>
-                  <th>Min Price</th>
-                  <th>Max Price</th>
+                  <th>Prices</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -39,8 +38,10 @@
                 <td>{{ $product->upc }}</td>
                 <td>{{ $product->gtin }}</td>
                 <td>{{ $product->isbn }}</td>
-                <td>£{{ $product->min_price }}</td>
-                <td>£{{ $product->max_price }}</td>
+                <td>
+                  Min: £{{ $product->min_price }}<br/>
+                  Max: £{{ $product->max_price }}
+                </td>
                 <td>
                   <a class="btn btn-sm btn-outline-warning" href="/admin/products/{{ $product->id }}/edit"><span data-feather="edit"></span></a>
                   {{-- <a href=""><span data-feather="zap"></a></span> --}}

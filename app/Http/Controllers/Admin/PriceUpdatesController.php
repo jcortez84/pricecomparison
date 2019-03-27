@@ -28,7 +28,7 @@ class PriceUpdatesController extends Controller
     {
         ini_set('max_execution_time', 0); //No limit
 
-        $feed = Datafeed::find($id);
+        $feed = Datafeed::where('merchant_id',$id)->first();
 
         $infile_path = 'storage/feed';
 
@@ -187,5 +187,16 @@ class PriceUpdatesController extends Controller
         }
          
          
+    }
+    
+    /**
+     * Run all
+     */
+    public function runAll()
+    {
+        $feeds = Datafeed::all();
+        foreach($feeds as $feed){
+            $this->run($feed->merchant_id);
+        }
     }
 }

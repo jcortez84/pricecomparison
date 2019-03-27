@@ -28,7 +28,7 @@ class SSHProductsController extends Controller
     {
         ini_set('max_execution_time', 0); //No limit
 
-        $feed = Datafeed::find($id);
+        $feed = Datafeed::where('merchant_id',$id)->first();
 
         /**
          * Merchant ID is set here
@@ -272,7 +272,7 @@ class SSHProductsController extends Controller
     {
         $feeds = Datafeed::all();
         foreach($feeds as $feed){
-            $this->run($feed->id);
+            $this->run($feed->merchant_id);
         }
     }
 }
