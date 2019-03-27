@@ -66,7 +66,7 @@ class SSHProductsController extends Controller
             $zip->renameName($zip->getNameIndex(0), $fname);
             $zip->extractTo($dest, $fname);
             $zip->close();
-            unlink($dest.'/feed');
+            //unlink($dest.'/feed');
         }
         /**
          * Open the datafile with fopen and create a handle
