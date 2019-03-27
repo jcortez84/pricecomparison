@@ -79,8 +79,8 @@ Route::post('/admin/datafeed/{id}/run', 'Admin\DatafeedsController@run');
 /**
  * SSH routes
  */
-Route::get('/prices-ssh/{id}/run', 'Admin\PriceUpdatesController@run');
-Route::get('/prices-ssh-all', 'Admin\PriceUpdatesController@runAll');
+Route::get('/admin/prices-ssh/{id}/run', 'Admin\PriceUpdatesController@run');
+Route::get('/admin/prices-ssh-all', 'Admin\PriceUpdatesController@runAll');
 
-Route::get('/products-ssh/{id}/run', 'Admin\SSHProductsController@run');
-Route::get('/products-ssh-all', 'Admin\SSHProductsController@runAll');
+Route::get('/admin/products-ssh/{id}/run', 'Admin\SSHProductsController@run');
+Route::get('/admin/products-ssh-all', 'Admin\SSHProductsController@runAll');

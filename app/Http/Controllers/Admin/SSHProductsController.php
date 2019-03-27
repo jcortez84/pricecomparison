@@ -264,7 +264,7 @@ class SSHProductsController extends Controller
     public function runAll()
     {
         $feeds = Datafeed::all();
-        dd($feed);
+        dd($feeds);
         foreach($feeds as $feed){
             echo $feed->id;
         }
