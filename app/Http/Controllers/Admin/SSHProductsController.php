@@ -82,8 +82,12 @@ class SSHProductsController extends Controller
          * Process the file
          * Add new produts to the database
          */
-        $nextId = Product::max('id');
-
+        if(Product::max('id') == 0){
+            $nextId = 1;
+        }else{
+            $nextId = Product::max('id')+1;
+        }
+        
         $flag = true;
 
         
@@ -179,8 +183,6 @@ class SSHProductsController extends Controller
                         }
                         $product_infile_path = $infile_path.'/products.csv';
                         $prods_data = $nextId.'|'.$category_id.'|'.$title.'|'.$slug.'|'.$mpn.'|'.$ean.'|'.$upc.'|'.$gtin.'|'.$isbn.'|'.$description.'|'.$min_price.'|'.$max_price.'|'.$brand_id."\r\n";
-
-                        echo $prods_data;
                         file_put_contents($product_infile_path, trim($prods_data).PHP_EOL, FILE_APPEND);
                         
                         /**
@@ -198,9 +200,7 @@ class SSHProductsController extends Controller
                          * Add product codes
                          */
                         $product_codes_infile_path = $infile_path.'/product_codes.csv';
-
                         $codes_data = $nextId.'|'.$mpn.'|'.$gtin.'|'.$ean.'|'.$isbn.'|'.$upc.'|'."\r\n";
-
                         file_put_contents($product_codes_infile_path, trim($codes_data).PHP_EOL, FILE_APPEND);
                         /**
                          * We now check to see if there is a product image link
