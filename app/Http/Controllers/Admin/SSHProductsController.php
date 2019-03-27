@@ -29,6 +29,7 @@ class SSHProductsController extends Controller
         ini_set('max_execution_time', 0); //No limit
 
         $feed = Datafeed::find($id);
+
         /**
          * Merchant ID is set here
          */
@@ -40,7 +41,9 @@ class SSHProductsController extends Controller
         $url = $feed->url;
 
         $infile_path = 'storage/feed';
-  
+        if(!is_dir($infile_path)){
+            mkdir($infile_path, 0777, $url);
+        }
         /**
          * Now we create the merchant autofeed
          * folder if it does not exist
@@ -54,7 +57,7 @@ class SSHProductsController extends Controller
          * Download the latest datafeed from merchant 
          * and copy to our newly created folder / server
          */
-         copy($url, $dest.'/feed');
+         //copy($url, $dest.'/feed');
          $fname = 'datafeed.csv';
 
         /**
@@ -67,7 +70,6 @@ class SSHProductsController extends Controller
             $zip->close();
             //unlink($dest.'/feed');
         }
-        dd($dest.'/'.$fname);
         /**
          * Open the datafile with fopen and create a handle
          */
