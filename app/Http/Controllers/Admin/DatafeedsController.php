@@ -98,7 +98,7 @@ class DatafeedsController extends Controller
         $feed = Datafeed::find($id);
 
         $mId = $feed->merchant_id;
-        $merchants = Merchant::orderBy('name', 'asc')->pluck('name', 'mId');
+        $merchants = Merchant::orderBy('name', 'asc')->pluck('name', 'id');
 
         return view('admin.datafeeds.edit')->with(compact('merchants', $merchants, 'feed', $feed));
     }
