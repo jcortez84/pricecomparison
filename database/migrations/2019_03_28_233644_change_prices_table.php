@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePricesTable extends Migration
+class ChangePricesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,6 +13,7 @@ class CreatePricesTable extends Migration
      */
     public function up()
     {
+        $this->down();
         Schema::create('prices', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('product_id');
