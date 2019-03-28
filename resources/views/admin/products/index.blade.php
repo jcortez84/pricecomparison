@@ -19,11 +19,7 @@
                 <tr>
                   <th>#</th>
                   <th>Title</th>
-                  <th>MPN</th>
-                  <th>EAN</th>
-                  <th>UPC</th>
-                  <th>GTIN</th>
-                  <th>ISBN</th>
+                  <th>Product Codes</th>
                   <th>Prices</th>
                   <th>Actions</th>
                 </tr>
@@ -33,11 +29,13 @@
               <tr>
                 <td>{{ $product->id }}</td>
                 <td>{{ str_limit($product->title, 30, '...') }}</td>
-                <td>{{ $product->mpn }}</td>
-                <td>{{ $product->ean }}</td>
-                <td>{{ $product->upc }}</td>
-                <td>{{ $product->gtin }}</td>
-                <td>{{ $product->isbn }}</td>
+                <td>
+                  MPN: {{ $product->mpn }}<br/>
+                  EAN: {{ $product->ean }}<br/>
+                  UPC: {{ $product->upc }}<br/>
+                  GTIN: {{ $product->gtin }}<br/>
+                  ISBN: {{ $product->isbn }}
+                </td>
                 <td>
                   Min: £{{ $product->min_price }}<br/>
                   Max: £{{ $product->max_price }}
