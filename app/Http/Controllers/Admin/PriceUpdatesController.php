@@ -72,7 +72,7 @@ class PriceUpdatesController extends Controller
          /**
          * Open the datafile with fopen and create a handle
          */
-        $ohandle = fopen($dest.'/'.$fname, 'r');
+        $handle = fopen($dest.'/'.$fname, 'r');
 
         /**
          * Next ID for new price
@@ -83,7 +83,7 @@ class PriceUpdatesController extends Controller
           */
           
         $header = null;
-        while (($data = fgetcsv($ohandle, 0, ',')) !== FALSE){
+        while (($data = fgetcsv($handle, 0, ',')) !== FALSE){
             if($header) { $header = false; continue; }
 
                     /**
@@ -154,7 +154,7 @@ class PriceUpdatesController extends Controller
                     }
 
         }
-        fclose($ohandle);
+        fclose($handle);
         $prices_file = $infile_path.'/new_'.$mId.'.csv';
         $update_prices_file = $infile_path.'/old_'.$mId.'.csv';
 

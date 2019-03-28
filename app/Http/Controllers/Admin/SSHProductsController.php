@@ -184,6 +184,7 @@ class SSHProductsController extends Controller
                         $product_infile_path = $infile_path.'/products.csv';
                         $prods_data = $nextId.'|'.$category_id.'|'.$title.'|'.$slug.'|'.$mpn.'|'.$ean.'|'.$upc.'|'.$gtin.'|'.$isbn.'|'.$description.'|'.$min_price.'|'.$max_price.'|'.$brand_id."\r\n";
                         file_put_contents($product_infile_path, trim($prods_data).PHP_EOL, FILE_APPEND);
+                        echo "Product $nextId - $title added.<br/>";
                         
                         /**
                          * Add images
@@ -193,6 +194,7 @@ class SSHProductsController extends Controller
                             $image_infile_path = $infile_path.'/images.csv';
                             $image_data = $nextId.'|'.$mId.'|'.$download_path."\r\n";
                             file_put_contents($image_infile_path, trim($image_data).PHP_EOL, FILE_APPEND);
+                            echo "Image for product $nextId added.<br/>";
                         }
                         
 
@@ -202,6 +204,7 @@ class SSHProductsController extends Controller
                         $product_codes_infile_path = $infile_path.'/product_codes.csv';
                         $codes_data = $nextId.'|'.$mpn.'|'.$gtin.'|'.$ean.'|'.$isbn.'|'.$upc.'|'."\r\n";
                         file_put_contents($product_codes_infile_path, trim($codes_data).PHP_EOL, FILE_APPEND);
+                        echo "Product Code MPN:$mpn EAN: $ean added.<br/>";
                         /**
                          * We now check to see if there is a product image link
                          * if it exists we get this to download later
