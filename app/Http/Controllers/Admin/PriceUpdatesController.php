@@ -115,8 +115,13 @@ class PriceUpdatesController extends Controller
                         $fields = ['product_id' => $prod_id, 'merchant_id' => $mId];
                         $price = Price::where($fields)->first();
 
-                        $price_column = $data[$feed->column_price];
-                        $shipping_column = $data[$feed->column_shipping];
+                        $price_column = (float)$data[$feed->column_price];
+                        if($data[$feed->column_shipping] !== ''){
+                            $shipping_column = (float)$data[$feed->column_shipping];
+                        }else{
+                            $shipping_column = 0.00;
+                        }
+                        
                         $name_column = $data[$feed->column_name];
                         if($feed->column_promo){
                         $promo_column = $data[$feed->column_promo];
@@ -136,7 +141,7 @@ class PriceUpdatesController extends Controller
 
                             file_put_contents($price_path, trim($new_price_data).PHP_EOL, FILE_APPEND);
 
-                            echo 'New price for: <b>'.$name_column.'</b> added £'.number_format($price_column, 2,'.', ' ').'<br/>';
+                            echo 'New price for: <b>'.$name_column.'</b> added £'.number_format($price_column, 2,'.', ' ').' - '.$shipping_column.'<br/>';
                             
                         }else{
 
