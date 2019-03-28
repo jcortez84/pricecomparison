@@ -117,7 +117,7 @@ class DatafeedsController extends Controller
             'feed_url' => 'required'
         ]);
 
-        $feed = Datafeed::find($id)->first();
+        $feed = Datafeed::find($id);
         $feed->merchant_id = $request->input('merchantId');
         $feed->url = $request->input('feed_url');
 
