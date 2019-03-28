@@ -117,7 +117,7 @@ class PriceUpdatesController extends Controller
 
                         $price_column = (float)$data[$feed->column_price];
                         if($data[$feed->column_shipping] !== ''){
-                            $shipping_column = (float)$data[$feed->column_shipping];
+                            $shipping_column = number_format($data[$feed->column_shipping], 2);
                         }else{
                             $shipping_column = 0.00;
                         }
