@@ -126,7 +126,7 @@ class ProductsController extends Controller
      */
     public function api_top_products()
     {
-        $products = Product::inRandomOrder()->with('images')->take(4)->get();
+        $products = Product::inRandomOrder()->with('images')->take(8)->get();
         return response($products, 200);
     }
     /**
@@ -136,7 +136,7 @@ class ProductsController extends Controller
      */
     public function api_featured_products()
     {
-        $products = Product::inRandomOrder()->with('images')->take(3)->get();
+        $products = Product::inRandomOrder()->with('images')->take(4)->get();
         return response($products, 200);
     }
 }

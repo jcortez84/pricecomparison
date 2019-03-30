@@ -44,6 +44,7 @@ Route::resource('/admin/products', 'Admin\ProductsController');
 Route::resource('/admin/categories', 'Admin\CategoriesController');
 Route::resource('/admin/users', 'Admin\UsersController');
 Route::resource('/admin/reports', 'Admin\ReportsController');
+Route::resource('/admin/migrations', 'Admin\MigrationController');
 
 Route::get('/admin/set_prices/{id}', 'Admin\ProductsController@set_min_max_price');
 Route::get('/admin/set_all_prices', 'Admin\ProductsController@profile_all_prices');

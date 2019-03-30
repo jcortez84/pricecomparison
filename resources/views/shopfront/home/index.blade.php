@@ -5,7 +5,7 @@
 <div id="deals">
         <div class="header h2 text-success mt-4">Featured products</div>
         <div  class="row">
-            <div v-for="product in feats" class="col-md-4 d-inline mb-3" >
+            <div v-for="product in feats" class="col-md-3 d-inline mb-3" >
                     @include('inc.product-card')
             </div>
         </div>

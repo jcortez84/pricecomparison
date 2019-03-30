@@ -17,6 +17,7 @@ class ChangeProductCodesTable extends Migration
         Schema::create('product_codes', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger('product_id');
+            $table->string('title')->nullable();
             $table->string('mpn')->nullable();
             $table->string('gtin')->nullable();
             $table->string('ean')->nullable();

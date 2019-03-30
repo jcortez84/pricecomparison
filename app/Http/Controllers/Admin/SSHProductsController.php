@@ -57,7 +57,7 @@ class SSHProductsController extends Controller
          * Download the latest datafeed from merchant 
          * and copy to our newly created folder / server
          */
-         //copy($url, $dest.'/feed');
+         copy($url, $dest.'/feed');
          $fname = 'datafeed.csv';
 
         /**
@@ -132,8 +132,13 @@ class SSHProductsController extends Controller
                  * product is not already in our database
                  */
                 if($feed->add_new_products && !$mpn || !$ean || !$gtin || !$upc){
-                
+                    if(isset($feed->column_brand)){
                         $brandId = Brand::where('name', $data[$feed->column_brand])->first();
+                        $brandId = $brandId->id;
+                    }else{
+                        $brandId = 0;
+                    }
+                        
                         
                         $category_id = $data[$feed->column_category_id]; //) || $data[$feed->column_category_id] > 999)?$data[$feed->column_category_id]:30;
 
@@ -172,7 +177,7 @@ class SSHProductsController extends Controller
 
                         $min_price = 0;
                         $max_price = 0;
-                        $brand_id = $brandId->id;
+                        $brand_id = $brandId;
                         /**
                          * Add new roduct 
                          */

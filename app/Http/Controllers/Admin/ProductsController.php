@@ -78,7 +78,7 @@ class ProductsController extends Controller
         $product->description = $request->input('description');
         $product->min_price = (float)$request->input('min_price');
         $product->max_price = (float)$request->input('max_price');
-        dd($product);
+   
         $product->save();
 
         $pc = new ProductCode;
@@ -317,8 +317,13 @@ class ProductsController extends Controller
             $product->save();
 
             return redirect()->back()->with('success', 'Product prices set');
+        }else{
+            $product->min_price = 0.00;
+            $product->max_price = 0.00;
+            $product->save();
+
+            return redirect()->back()->with('success', 'Product prices set');
         }
-        return redirect()->back()->with('error', 'Product prices not set');
         
     }
 

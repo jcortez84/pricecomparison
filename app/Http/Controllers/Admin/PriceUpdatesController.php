@@ -116,8 +116,10 @@ class PriceUpdatesController extends Controller
                         $price = Price::where($fields)->first();
 
                         $price_column = (float)$data[$feed->column_price];
-                        if($data[$feed->column_shipping] !== ''){
+                        if(is_numeric($data[$feed->column_shipping])){
                             $shipping_column = number_format($data[$feed->column_shipping], 2);
+                        }elseif(!is_numeric($data[$feed->column_shipping])){
+                            $shipping_column = 0.00;
                         }else{
                             $shipping_column = 0.00;
                         }
@@ -137,11 +139,13 @@ class PriceUpdatesController extends Controller
  
                             $price_path = $infile_path.'/new_'.$mId.'.csv';
 
-                            $new_price_data = $prod_id.'|'.$mId.'|'.$price_column.'|'.$shipping_column.'|'.$name_column.'|'.$promo_column.'|'.$buy_url_column."\r\n";
+                            $new_price_data = $newPriceId.'|'.$prod_id.'|'.$mId.'|'.$price_column.'|'.$shipping_column.'|'.$name_column.'|'.$promo_column.'|'.$buy_url_column."\r\n";
 
                             file_put_contents($price_path, trim($new_price_data).PHP_EOL, FILE_APPEND);
 
                             echo 'New price for: <b>'.$name_column.'</b> added £'.number_format($price_column, 2,'.', ' ').' - '.$shipping_column.'<br/>';
+
+                            $newPriceId++;
                             
                         }else{
 
@@ -170,7 +174,7 @@ class PriceUpdatesController extends Controller
         if(file_exists($prices_file)){
             $price_query = "LOAD DATA LOCAL INFILE '" . $prices_file . "'
             REPLACE INTO TABLE prices FIELDS TERMINATED BY '|'
-                (product_id,merchant_id,amount,shipping,product_title,promo_text,buy_link,@created_at,@updated_at)
+                (id,product_id,merchant_id,amount,shipping,product_title,promo_text,buy_link,@created_at,@updated_at)
                 SET created_at=NOW(),updated_at=NOW()";
             DB::connection()->getpdo()->exec($price_query);
         }

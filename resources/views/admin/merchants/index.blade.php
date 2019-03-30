@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 @section('title', 'Merchants')
 @section('content')
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Merchants</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-1 pb-2 mb-1 border-bottom">
+        <h1 class="h6">Merchants</h1>
+        <div class="btn-toolbar mb-1 mb-md-0">
           <div class="mr-2">
               <a href="{{ url('/admin/products-ssh-all') }}" class="btn btn-success">Add new products by SSH</a>
               <a href="{{ url('/admin/prices-ssh-all') }}" class="btn btn-warning">Update prices by SSH</a>
@@ -28,7 +28,7 @@
               @foreach ($merchants as $merchant)
                 <tr>
                   <td>{{ $merchant->id }}</td>
-                  <td><img style="height:20px" src='{!!"/storage/merchants/$merchant->id/$merchant->logo"!!}' alt="{!! $merchant->logo !!}">&nbsp;{{ $merchant->name }}</td>
+                  <td><img style="height:40px" src='{{asset("$merchant->logo")}}'>&nbsp;{{ $merchant->name }}</td>
                   <td>{{ $merchant->slug }}</td>
                   <td>{{ $merchant->email }}</td>
                   
