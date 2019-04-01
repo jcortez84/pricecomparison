@@ -104,7 +104,7 @@ class ProductsController extends Controller
      */
     public function api_category_products($cat_id)
     {
-        $products = Product::where('category_id', $cat_id)->with('images')->paginate(15);
+        $products = Product::where('category_id', $cat_id)->with('images')->paginate(16);
         return response($products, 200);
     }
     
@@ -115,7 +115,7 @@ class ProductsController extends Controller
      */
     public function api_brand_products($brand_id)
     {
-        $products = Product::where('brand_id', $brand_id)->with('images')->paginate(15);
+        $products = Product::where('brand_id', $brand_id)->with('images')->paginate(16);
         return response($products, 200);
     }
 

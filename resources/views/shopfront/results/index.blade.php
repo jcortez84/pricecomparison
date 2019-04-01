@@ -20,7 +20,7 @@
                     <span class="sr-only">Loading...</span>
             </div>
     
-            <div v-for="product in products" class="col-md-4 d-inline mb-3">
+            <div v-for="product in products" class="col-md-3 d-inline mb-3">
                 @include('inc.product-card')
             </div>
             {{-- Include the pagination blade template --}}

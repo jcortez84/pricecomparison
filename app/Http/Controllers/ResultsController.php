@@ -27,7 +27,7 @@ class ResultsController extends Controller
      */
     public function search($q)
     {
-        $result = Product::where('title', 'like', '%'.$q.'%')->with('images')->orderBy('title', 'asc')->paginate(15);
+        $result = Product::where('title', 'like', '%'.$q.'%')->with('images')->orderBy('title', 'asc')->paginate(16);
         return response($result, 200);
     }
 }
