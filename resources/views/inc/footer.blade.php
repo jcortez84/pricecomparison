@@ -13,7 +13,7 @@
 
           <!-- Content -->
           <h5 class="">lowprices4u.co.uk</h5>
-          <p class="muted">Since 2017, Lowprices4u.co.uk has helped thousands of bargain hunters find the best products at the best prices.</p>
+          <p class="muted">Since 2019, Lowprices4u.co.uk has helped thousands of bargain hunters find the best products at the best prices.</p>
 
           <p class="muted">Lowprices4u.co.uk is completely independent and free to use. Our vision is to be someone that you can always count on when comparing products and prices.</p>
 
