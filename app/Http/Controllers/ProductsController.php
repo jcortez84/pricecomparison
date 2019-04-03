@@ -71,7 +71,7 @@ class ProductsController extends Controller
         $products = Price::with('images')->join('products', function ($join) {
             $join->on('products.id', '=', 'prices.product_id')
                  ->where('merchant_id', $this->mId);
-        })->paginate(15);
+        })->paginate(16);
         return response($products, 200);
     }
 
