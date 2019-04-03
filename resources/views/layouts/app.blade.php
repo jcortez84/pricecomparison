@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="Iwl2FVH7KZ-_-rB9OPefqv3dM25sZ4Z8uuNHjUc7_DI" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- <title>{{ config('app.name', 'Lowestprices4u.co.uk') }}</title> --}}
