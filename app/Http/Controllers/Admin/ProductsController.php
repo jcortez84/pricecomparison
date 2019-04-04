@@ -338,4 +338,75 @@ class ProductsController extends Controller
             $this->set_min_max_price($product->id);
         }
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function merge_index(Request $request)
+    {
+        $request->user()->authorizeRoles(['employee', 'manager']);
+
+        $products = Product::orderBy('id', 'asc')->paginate(10);
+        if(Request()->get('q') !== null){
+            $q = Request()->get('q');
+            $products = Product::where('title','like', '%'.$q.'%')
+            ->orWhere('mpn', 'like', '%'.$q.'%')
+            ->orWhere('ean', 'like', '%'.$q.'%')
+            ->orWhere('upc', 'like', '%'.$q.'%')
+            ->orWhere('gtin', 'like', '%'.$q.'%')
+            ->orWhere('isbn', 'like', '%'.$q.'%')
+            ->orWhere('description', 'like', '%'.$q.'%')
+            ->paginate(10);  
+        }
+        return view('admin.merge-products.index')->with(compact('products'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function merge_store(Request $request)
+    {
+        /**
+         * This is the value of the product to 
+         * which the others will be 
+         * merged
+         */
+        $main_product = $request->input('main_product');
+        /**
+         * This is the value (array)
+         * of products to 
+         * be merged
+         */
+        $products_to_merge = $request->input('products_to_merge');
+        /**
+         * Now update products_to_merge prices
+         * so they belong to the main_product
+         */
+        $price = Price::whereIn('product_id', $products_to_merge)->update(['product_id'=>$main_product]);
+        /**
+         * Now we update the Product codes
+         * so that future updates products
+         * are target the new prices
+         */
+        $product_code = ProductCode::whereIn('product_id', $products_to_merge)->update(['product_id'=>$main_product]);
+
+        /**
+         * Profile product prices
+         * 
+         */
+        $this->set_min_max_price($main_product);
+
+        foreach($products_to_merge as $p)
+        {
+            $this->set_min_max_price($p);
+        }
+
+        return redirect()->back()->with('success', 'Products merged successfuly');
+        
+    }
 }

@@ -115,9 +115,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+              <a class="nav-link {{ Request::is('admin/merge-products') || Request::is('admin/merge-products/*')?'active':'' }}" href="{{ url('/admin/merge-products') }}">
               <span data-feather="file-text"></span>
-              Last quarter
+              Merge Products
             </a>
           </li>
           <li class="nav-item">

@@ -41,6 +41,8 @@ Route::resource('/admin/pages', 'Admin\PagesController');
 Route::resource('/admin/prices', 'Admin\PricesController');
 Route::get('/admin/products/delete-without-prices', 'Admin\ProductsController@batchDelete');
 Route::resource('/admin/products', 'Admin\ProductsController');
+Route::get('/admin/merge-products', 'Admin\ProductsController@merge_index');
+Route::post('/admin/merge-products', 'Admin\ProductsController@merge_store');
 Route::resource('/admin/categories', 'Admin\CategoriesController');
 Route::resource('/admin/users', 'Admin\UsersController');
 Route::resource('/admin/reports', 'Admin\ReportsController');
