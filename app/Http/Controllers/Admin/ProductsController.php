@@ -348,7 +348,7 @@ class ProductsController extends Controller
     {
         $request->user()->authorizeRoles(['employee', 'manager']);
 
-        $products = Product::orderBy('id', 'asc')->paginate(10);
+        $products = Product::orderBy('ean', 'asc')->paginate(10);
         if(Request()->get('q') !== null){
             $q = Request()->get('q');
             $products = Product::where('title','like', '%'.$q.'%')
