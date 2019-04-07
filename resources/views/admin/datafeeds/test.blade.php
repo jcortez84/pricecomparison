@@ -54,11 +54,11 @@
           </div>
         <div class="form-group">
           {!! Form::label('Match By:') !!}
-          {!! Form::select('match_by', ['mpn'=>'MPN', 'gtin'=>'GTIN', 'ean'=>'EAN', 'isbn'=>'ISBN', 'upc'=>'UPC', 'name'=>'Product Name'],null, ['class' => 'form-control']) !!}
+          {!! Form::select('match_by', ['mpn'=>'MPN', 'gtin'=>'GTIN', 'ean'=>'EAN', 'isbn'=>'ISBN', 'upc'=>'UPC', 'name'=>'Product Name'],$feed->match_by, ['class' => 'form-control']) !!}
         </div>
         <div class="form-group">
           {!! Form::label('Add New Products:') !!}
-          {!! Form::select('add_new_products', ['0'=>'No', '1'=>'Yes'],null, ['class' => 'form-control']) !!}
+          {!! Form::select('add_new_products', ['0'=>'No', '1'=>'Yes'],$feed->add_new_products, ['class' => 'form-control']) !!}
           <p>Select Yes if you want to add products to database if not found.</p>
         </div>
 

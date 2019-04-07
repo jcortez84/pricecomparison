@@ -151,9 +151,10 @@ class DatafeedsController extends Controller
             mkdir($dest, 0777, $url);
         }
 
+        getRemoteFile($url, $dest.'/testrun');
         copy($url, $dest.'/testrun');
         $fname = 'testrun.csv';
-
+        
         $zip = new ZipArchive;
         if ($zip->open($dest.'/testrun') === TRUE) {
             $zip->renameName($zip->getNameIndex(0), $fname);
