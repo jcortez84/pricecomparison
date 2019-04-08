@@ -23,7 +23,7 @@ class PricesController extends Controller
         $prices = Merchant::join('prices', function ($join) {
             $join->on('merchants.id', '=','prices.merchant_id' )
                  ->where('product_id', $this->prod_id);
-        })->orderBy('amount', 'asc')->get();
+        })->orderByRaw(('amount+shipping'), 'asc')->get();
         return response($prices, 200);
     }
 
