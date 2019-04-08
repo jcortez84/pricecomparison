@@ -136,7 +136,7 @@ class ProductsController extends Controller
      */
     public function api_featured_products()
     {
-        $products = Product::where('category_id', '=',9)->inRandomOrder()->with('images')->take(4)->get();
+        $products = Product::where('category_id', '=',651)->inRandomOrder()->with('images')->take(4)->get();
         return response($products, 200);
     }
 }
