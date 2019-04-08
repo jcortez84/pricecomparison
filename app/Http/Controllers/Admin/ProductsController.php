@@ -29,7 +29,14 @@ class ProductsController extends Controller
         $products = Product::paginate(10);
         if(Request()->get('q') !== null){
             $q = Request()->get('q');
-            $products = Product::where('title','like', '%'.$q.'%')->paginate(10);  
+            $products = Product::where('title','like', '%'.$q.'%')
+            ->orWhere('mpn', 'like', '%'.$q.'%')
+            ->orWhere('ean', 'like', '%'.$q.'%')
+            ->orWhere('upc', 'like', '%'.$q.'%')
+            ->orWhere('gtin', 'like', '%'.$q.'%')
+            ->orWhere('isbn', 'like', '%'.$q.'%')
+            ->orWhere('description', 'like', '%'.$q.'%')
+            ->paginate(10);   
         }
         return view('admin.products.index')->with('products', $products);
     }
