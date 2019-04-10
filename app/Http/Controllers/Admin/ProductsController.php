@@ -416,4 +416,29 @@ class ProductsController extends Controller
         return redirect()->back()->with('success', 'Products merged successfuly');
         
     }
+    /**
+     * Bulk product moving index form
+     */
+    public function bulk_index(Request $request)
+    {
+        $request->user()->authorizeRoles(['employee', 'manager']);
+        $products = [];
+        $categories = Category::orderBy('title', 'asc')->pluck('title', 'id');
+        if(Request()->get('cat') !== null){
+            $cat = Request()->get('cat');
+            $products = Product::where('category_id', $cat)->get();  
+        }
+
+        return view('admin.bulk-products.index')->with(compact('products', 'categories'));
+    }
+
+    /**
+     * Bulk move processing
+     */
+    public function bulk_move(Request $request)
+    {
+        $request->user()->authorizeRoles(['employee', 'manager']);
+
+        return redirect()->back()->with('success', 'Products moved successfuly');
+    }
 }

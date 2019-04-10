@@ -121,11 +121,11 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Social engagement
-            </a>
-          </li>
+            <a class="nav-link {{ Request::is('admin/bulk-products') || Request::is('admin/bulk-products/*')?'active':'' }}" href="{{ url('/admin/bulk-products') }}">
+            <span data-feather="file-text"></span>
+            Bulk Products
+          </a>
+        </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="file-text"></span>

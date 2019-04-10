@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
- 
+Route::get('index-products/{cat_id}', 'ProductsController@api_index_products')->name('index_products'); 
 Route::get('products/{cat_id}', 'ProductsController@api_category_products')->name('category_products');
 Route::get('brand-products/{brad_id}', 'ProductsController@api_brand_products')->name('brand_products');
 Route::get('retailer-products/{mId}', 'ProductsController@api_retailer_products')->name('retailer_products');

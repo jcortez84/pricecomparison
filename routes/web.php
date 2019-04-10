@@ -43,6 +43,8 @@ Route::get('/admin/products/delete-without-prices', 'Admin\ProductsController@ba
 Route::resource('/admin/products', 'Admin\ProductsController');
 Route::get('/admin/merge-products', 'Admin\ProductsController@merge_index');
 Route::post('/admin/merge-products', 'Admin\ProductsController@merge_store');
+Route::get('/admin/bulk-products', 'Admin\ProductsController@bulk_index');
+Route::post('/admin/bulk-products', 'Admin\ProductsController@bulk_move');
 Route::resource('/admin/categories', 'Admin\CategoriesController');
 Route::resource('/admin/users', 'Admin\UsersController');
 Route::resource('/admin/reports', 'Admin\ReportsController');

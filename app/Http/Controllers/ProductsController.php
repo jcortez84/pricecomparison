@@ -139,4 +139,15 @@ class ProductsController extends Controller
         $products = Product::where('category_id', '=',651)->inRandomOrder()->with('images')->take(4)->get();
         return response($products, 200);
     }
+
+    /**
+     * Get featured products for index page
+     * @param $cat_id
+     * @return @json object
+     */
+    public function api_index_products($cat_id)
+    {
+        $products = Product::where('category_id', '=',$cat_id)->inRandomOrder()->with('images')->take(4)->get();
+        return response($products, 200);
+    }
 }
