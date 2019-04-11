@@ -30,7 +30,7 @@
                 <td>{{ $product->id }}</td>
                 <td><input type="radio" name="main_product" id="{{ $product->id }}" value="{{ $product->id }}"></td>
                 <td><input type="checkbox" name="products_to_merge[]" id="{{ $product->id }}" value="{{ $product->id }}"></td>
-                <td>{{ str_limit($product->title, 30, '...') }}</td>
+                <td>{{ $product->title }}</td>
                 <td>
                   MPN: {{ $product->mpn }}<br/>
                   EAN: {{ $product->ean }}<br/>
