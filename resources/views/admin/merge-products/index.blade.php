@@ -21,7 +21,6 @@
                   <th>Title</th>
                   <th>Product Codes</th>
                   <th>Prices</th>
-                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
