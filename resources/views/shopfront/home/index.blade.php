@@ -1,33 +1,33 @@
 @extends('layouts.app')
-@section('title', 'Compare prices - Lowprices4u.co.uk')
+@section('title', 'Price Comparison - Lowprices4u.co.uk')
 @section('content')
 <div class="container">
 <div id="deals">
-        <div class="header h2 text-success mt-0">Low price LED TV offers</div>
+        <div class="header h3 text-success mt-0">Compare LED TV Prices</div>
         <div  class="row">
-            <div v-for="product in prods1" class="col-6 col-sm-6 col-md-3 d-inline mb-3" >
+            <div v-for="product in prods1" class="col-6 col-sm-6 col-md-3 d-inline mb-3 card-group" >
                     @include('inc.product-card')
             </div>
         </div>
-        <div class="header h2 text-success mt-2">Low price Fridge Freezers</div>
+        <div class="header h3 text-success mt-2">Price Comparison Fridge Freezers</div>
         <div  class="row">
             <div v-for="product in prods2" class="col-6 col-sm-6 col-md-3 d-inline mb-3" >
                     @include('inc.product-card')
             </div>
         </div>
-        <div class="header h2 text-success mt-2">Low price Perfumes</div>
+        <div class="header h3 text-success mt-2">Lowest Price Perfume</div>
         <div  class="row">
             <div v-for="product in prods3" class="col-6 col-sm-6 col-md-3 d-inline mb-3" >
                     @include('inc.product-card')
             </div>
         </div>
-        <div class="header h2 text-success mt-2">Low price Blu-Ray Players</div>
+        <div class="header h3 text-success mt-2">Cheap Blu-Ray Players</div>
         <div  class="row">
             <div v-for="product in prods4" class="col-6 col-sm-6 col-md-3 d-inline mb-3" >
                     @include('inc.product-card')
             </div>
         </div>
-        <div class="header h2 text-success mt-2">Low price Digital Cameras</div>
+        <div class="header h3 text-success mt-2">Best Price Digital Cameras</div>
         <div  class="row">
             <div v-for="product in prods5" class="col-6 col-sm-6 col-md-3 d-inline mb-3" >
                     @include('inc.product-card')

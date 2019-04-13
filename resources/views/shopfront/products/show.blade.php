@@ -16,7 +16,7 @@
                         </div>    
                         <div class="row mb-3">
                                 <div class="col-md-4">
-                                    <img v-if="product.images" :src="'/'+product.images.path" class="card-img-top" :alt="product.title" id="prod_image">
+                                    <img v-if="product.images !== null" :src="'/'+product.images.path" class="card-img-top" :alt="product.title" id="prod_image">
                                     <img v-else src="https://via.placeholder.com/200" class="card-img-top" alt="no-image">
                                 </div>
                                 <div class="col-md-8" >
