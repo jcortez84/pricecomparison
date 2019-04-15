@@ -29,7 +29,7 @@ class ImagesController extends Controller
             $merchant = $mId;
             $images = ProductImageLink::where('merchant_id', $mId)->paginate(10);
         }
-        return view('admin.images.index', ['images' => $images->appends(Input::except('page'))])->with(compact('images', 'merchant'));
+        return view('admin.images.index', ['images' => $images->appends(Input::except('page'))])->with(compact('merchant'));
     }
 
     /**
