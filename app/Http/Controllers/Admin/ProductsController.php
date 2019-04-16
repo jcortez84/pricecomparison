@@ -12,6 +12,7 @@ use App\Brand;
 use App\Category;
 use App\ProductCodes as ProductCode;
 use App\Price;
+use Illuminate\Support\Facades\Input;
 
 class ProductsController extends Controller
 {
@@ -38,7 +39,7 @@ class ProductsController extends Controller
             ->orWhere('description', 'like', '%'.$q.'%')
             ->paginate(10);   
         }
-        return view('admin.products.index')->with('products', $products);
+        return view('admin.products.index', ['products' => $products->appends(Input::except('page'))])->with('products', $products);
     }
 
     /**
@@ -340,7 +341,7 @@ class ProductsController extends Controller
     public function profile_all_prices()
     {
         ini_set('max_execution_time', 0); //No limit
-        $products = Product::where('max_price', 0)->get();
+        $products = Product::all();
         foreach($products as $product){
             $this->set_min_max_price($product->id);
         }
@@ -367,7 +368,7 @@ class ProductsController extends Controller
             ->orWhere('description', 'like', '%'.$q.'%')
             ->paginate(10);  
         }
-        return view('admin.merge-products.index')->with(compact('products'));
+        return view('admin.merge-products.index', ['products' => $products->appends(Input::except('page'))])->with(compact('products'));
     }
 
     /**
@@ -429,7 +430,7 @@ class ProductsController extends Controller
             $products = Product::where('category_id', $cat)->get();  
         }
 
-        return view('admin.bulk-products.index')->with(compact('products', 'categories'));
+        return view('admin.bulk-products.index', ['products' => $products->appends(Input::except('page'))])->with(compact('products', 'categories'));
     }
 
     /**

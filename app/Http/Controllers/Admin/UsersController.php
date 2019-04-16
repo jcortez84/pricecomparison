@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Role;
 use App\RoleUser;
+use Illuminate\Support\Facades\Input;
 
 class UsersController extends Controller
 {
@@ -24,7 +25,7 @@ class UsersController extends Controller
     {
         $users = User::with('roles')->paginate(10);
        
-        return view('admin.users.index')->with('users', $users);
+        return view('admin.users.index', ['users' => $users->appends(Input::except('page'))])->with('users', $users);
     }
 
     /**

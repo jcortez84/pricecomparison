@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Merchant;
+use Illuminate\Support\Facades\Input;
 
 class MerchantsController extends Controller
 {
@@ -27,7 +28,7 @@ class MerchantsController extends Controller
         }
 
 
-        return view('admin.merchants.index')->with('merchants', $merchants);
+        return view('admin.merchants.index', ['merchants' => $merchants->appends(Input::except('page'))])->with('merchants', $merchants);
     }
 
     /**

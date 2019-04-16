@@ -42,7 +42,7 @@
                 </td>
                 <td>
                   <a class="btn btn-sm btn-outline-warning" href="/admin/products/{{ $product->id }}/edit"><span data-feather="edit"></span></a>
-                  {{-- <a href=""><span data-feather="zap"></a></span> --}}
+                  <a class="btn btn-sm btn-outline-info" href="/admin/image/{{ App\ProductImageLink::where('product_id',$product->id)->value('id') }}/download"><span data-feather="download"></a></span>
                   <a class="btn btn-sm btn-outline-success" href="/admin/set_prices/{{$product->id}}"><span data-feather="dollar-sign"></span></a>
                   <a class="btn btn-sm btn-outline-dark" href=""><span data-feather="activity"></span></a>
                   

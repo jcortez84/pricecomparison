@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
+use Illuminate\Support\Facades\Input;
 
 class CategoriesController extends Controller
 {
@@ -25,7 +26,7 @@ class CategoriesController extends Controller
             $categories = Category::paginate(10);
         }
         
-        return view('admin.categories.index')->with('categories', $categories);
+        return view('admin.categories.index', ['categories' => $categories->appends(Input::except('page'))])->with('categories', $categories);
     }
 
     /**

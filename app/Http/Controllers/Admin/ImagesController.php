@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\ProductImage;
 use App\Product;
 use App\ProductImageLink;
+use Illuminate\Support\Facades\Input;
 
 class ImagesController extends Controller
 {
@@ -134,11 +135,15 @@ class ImagesController extends Controller
         $image = ProductImageLink::find($id);
 
         $local_path = 'storage/products/images/'.$image->product_id.'/';
-        $download_path = $image->download_path;
-       // dd($download_path);
-        $ext = pathinfo($download_path, PATHINFO_EXTENSION);
+
+        $ext = pathinfo($image->download_path, PATHINFO_EXTENSION);
+        $download_path = substr($image->download_path, 0 , (strrpos($image->download_path, ".")));
+        
+        $ext = explode('?', $ext);
+        $ext = rtrim($ext[0]);
+        $download_path = $download_path.'.'.$ext;
+
         $dest = $local_path.$id.'.'.$ext;
-      
         if(!is_dir($local_path)){
             mkdir($local_path, 0777, $download_path);
         }
