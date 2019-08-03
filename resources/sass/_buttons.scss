@@ -1,0 +1,30 @@
+.btn-teal {
+    background-color: #FFF;
+    color: $teal;
+  }
+  .btn-menu {
+    height: 100%;
+  }
+  .btn-teal:hover {
+    background-color: $teal;
+    color: #FFF; 
+  }
+  .nav-menu-btn {
+    color: #FFF;
+    display: inline-block;
+    border-right: 0px solid #FFF;
+    height: 100%;
+    padding: 0;
+    margin: 0%;
+
+  }
+  .nav-menu-btn:hover {
+    border-bottom: 3px solid #FFF;
+  }
+  .nav-menu-btn:active {
+    border-bottom: 3px solid $teal;
+  }
+  
+  .nav-menu-btn:last-child {
+    border-right: none;
+  }

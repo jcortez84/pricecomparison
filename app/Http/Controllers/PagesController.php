@@ -16,7 +16,7 @@ class PagesController extends Controller
      */
     public function show($slug)
     {
-        $categories = Category::where('parent_id', 0)->get();
+        $categories = Category::where('is_featured', 1)->take(9)->get();
         $page = Page::where('slug', $slug)->first();
         return view('shopfront.pages.show')->with(compact('page', $page, 'categories', $categories));
     }

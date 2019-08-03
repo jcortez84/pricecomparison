@@ -16,15 +16,15 @@
                         </div>    
                         <div class="row mb-3">
                                 <div class="col-md-4">
-                                    <img v-if="product.images.path !== null" :src="'/'+product.images.path" class="card-img-top" :alt="product.title" id="prod_image">
-                                    <img v-else src="https://via.placeholder.com/200" class="card-img-top" alt="no-image">
+                                    <img v-if="product.images.path !== null" :src="'/'+product.images.path" class="product-img-main" :alt="product.title" id="prod_image">
+                                    <img v-else src="https://via.placeholder.com/200" class="product-img-main" alt="no-image">
                                 </div>
                                 <div class="col-md-8" >
-                                        <h2 class="card-title h4 text-success"  v-html="product.title">@{{product.title}}</h2>
+                                        <h1 class="product-name text-muted"  v-html="product.title">@{{product.title}}</h1>
                                         <p v-if="product.description" class="lead text-muted"><small v-html="product.description.substring(0,150)+'...'"></small></p>
-                                        <p class="lead text-muted"><small>Lowest price:</small> <em class="h2 text-success">£@{{formatPrice(product.min_price)}}</em>&nbsp;&nbsp;
-                                            <sup class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#priceAlertModal">
-                                                <i class="far fa-bell"></i> Price alert
+                                        <p class="lead text-muted"><small>Lowest price:</small> <em class="h2 text-pink">£@{{formatPrice(product.min_price)}}</em>&nbsp;&nbsp;
+                                            <sup class="btn btn-outline-secondary btn-sm rounded-0" data-toggle="modal" data-target="#priceAlertModal">
+                                                <i class="far fa-bell text-teal"></i> Price alert
                                             </sup>
                                         </p>
                                         
@@ -34,8 +34,8 @@
                         </div>
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Compare Prices</a>
-                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Product Information</a>
+                                <a class="nav-item nav-link active rounded-0" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Compare Prices</a>
+                                <a class="nav-item nav-link rounded-0" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Product Information</a>
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
@@ -44,22 +44,22 @@
                                             <div class="card-body row" style="padding:0">
                                                 
                                                 <div class="col-sm"> 
-                                                        <img  style="width: 100px; height: 100px;" v-if="price.logo" :src="'/'+price.logo">
+                                                        <img class="price-logo"  v-if="price.logo" :src="'/'+price.logo">
                                                         <h6 v-if="!price.logo" class="text-muted mt-auto"> @{{price.name}}</h6>
                                                 </div>
                                                 <div class="col-sm">
                                                         <b class="text-muted mx-auto"> @{{price.product_title}}</b>
                                                 </div>
                                                 <div class="col-sm">
-                                                        <h1 class="text-muted"><em class="text-success">£@{{formatPrice(price.amount)}}</em></h1>
-                                                        <p class="lead text-muted small"> £@{{ formatPrice(Number(price.amount) + Number(price.shipping)) }} Incl. delivery<br>
+                                                        <h3 class="text-muted"><em class="text-pink">£@{{formatPrice(price.amount)}}</em></h3>
+                                                        <p class="text-muted small"> £@{{ formatPrice(Number(price.amount) + Number(price.shipping)) }} Incl. delivery<br>
                                                         <em class="small text-danger">* Updated at: @{{price.updated_at}}</em>
                                                         </p>
                 
                                                 </div>
                                                 <div class="col-sm ">
                                                     <a v-bind:href="'/gotostore/'+ price.id +'?task=bhsafg272bygv21rigkvby4gfvob'" target="_blank">
-                                                        <button class="btn btn-success btn-lg">Go to store</button>
+                                                        <button class="btn btn-go btn-lg rounded-0">Go to store</button>
                                                     </a>
                                                 </div>
                                             </div>

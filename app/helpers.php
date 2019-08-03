@@ -22,7 +22,7 @@
         if(Request()->slug === $cat->slug){
             $breadcrumb = "<li class='breadcrumb-item  active'  aria-current='page'>$cat->title</li>";
         }else{
-            $breadcrumb = "<li class='breadcrumb-item'><a  class='text-dark' href='/c/$cat->slug'>$cat->title</a></li>";
+            $breadcrumb = "<li class='breadcrumb-item'><a  class='text-muted' href='/c/$cat->slug'>$cat->title</a></li>";
         }
         
         if($cat->parent_id !== 0){

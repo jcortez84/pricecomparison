@@ -1,0 +1,43 @@
+.navbar-lowprices4u {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    background-color: $bgcolor;
+    padding: 15px;
+    color: #f9f9f9;
+    align-items: center;
+  }
+  .search-form {
+    padding-left: 5%;
+    width: 50%;
+    font-weight: 100;
+    color: #d6d5df;
+  }
+  .user-div {
+    float: right;
+    margin-left: 45%;
+  }
+  .user-icon {
+    cursor: pointer;
+  }
+  .user-icon:hover {
+    color: $body-bg;
+  }
+  .navbar-brand {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFF;
+    float: left;
+  }
+  .navbar-brand:hover {
+    color: #FFF;
+    .navbar-logo {
+      color: #FFF;
+    }
+  }
+  .navbar-logo {
+    color: $teal;
+  }
+  .search-input {
+    border: 0px;
+    color: $light;
+  }

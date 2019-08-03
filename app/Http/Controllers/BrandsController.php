@@ -17,7 +17,7 @@ class BrandsController extends Controller
     public function index()
     {
         $brands = Brand::orderBy('name', 'asc')->paginate(30);
-        $categories = Category::where('parent_id', 0)->get();
+        $categories = Category::where('is_featured', 1)->take(9)->get();
         return view('shopfront.brands.index')->with(compact('brands', $brands, 'categories', $categories));
     }
 

@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
 <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
+        <ol class="breadcrumb rounded-0">
                 <li class="breadcrumb-item"><a class="text-dark" href="/">Home</a></li>
                 @if($page)
                 <li class="breadcrumb-item active" aria-current="page">{{$page->title}}</li>
@@ -13,8 +13,8 @@
         </ol>
 </nav>
 @if($page)
-        <h1 class="h2 text-success">{{$page->title}}</h1>
-        <div>
+        <h1 class="page-heading text-muted">{{$page->title}}</h1>
+        <div class="text-muted">
                 {!!$page->body!!}
         </div>
 @endif

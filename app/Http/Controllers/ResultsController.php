@@ -17,7 +17,7 @@ class ResultsController extends Controller
      */
     public function index()
     {
-        $categories = Category::where('parent_id', 0)->get();
+        $categories = Category::where('is_featured', 1)->take(9)->get();
         
         return view('shopfront.results.index')->with(compact('categories'));
     }
@@ -28,7 +28,7 @@ class ResultsController extends Controller
     public function search($q)
     {
        // $result = Product::where('title', 'like', '%'.$q.'%')->with('images')->orderBy('title', 'asc')->paginate(16);
-        $result = Product::search($q, null, true)->paginate(16);
+        $result = Product::search($q, null, true)->with('images')->paginate(16);
         return response($result, 200);
     }
 }

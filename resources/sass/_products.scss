@@ -1,0 +1,54 @@
+.card-link {
+    text-decoration: none;
+    color: $light;
+}
+
+.card-link:hover {
+    text-decoration: none;
+    color: $light;
+    .card-card {
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+}
+.card-img-top {
+    max-height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.card-card {
+    height: 300px;
+}
+
+.card {
+    border: 1px solid $body-bg;
+}
+
+.product-img-main {
+    height: 300px;
+    width: 290px
+
+}
+.product-name {
+    font-size: 1.3rem;
+}
+
+.price-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.btn-go {
+    background-color: $teal;
+    color: #FFF;
+}
+.btn-go:hover {
+    border-color: $teal;
+    background-color: #FFF;
+    color: $teal;
+}
+.alert-image {
+    height: 200px;
+    width: 210px;
+}

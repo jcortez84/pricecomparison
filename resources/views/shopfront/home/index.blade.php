@@ -1,38 +1,22 @@
 @extends('layouts.app')
 @section('title', 'Price Comparison - Lowprices4u.co.uk')
 @section('content')
+@include('inc.carousel')
 <div class="container">
-<div id="deals">
-        <div class="header h3 text-success mt-0">Compare LED TV Prices</div>
-        <div  class="row">
-            <div v-for="product in prods1" class="col-6 col-sm-6 col-md-3 d-inline mb-3 card-group" >
-                    @include('inc.product-card')
+    <div id="deals">
+        <div class="text-muted mt-1 text-uppercase"><small class="section-title">Popular Products</small></div>
+        <div  class="row mt-3">
+            <div v-for="product in prods3" class="col-6 col-sm-6 col-md-3 d-inline mb-3 card-group" >
+                @include('inc.product-card')
             </div>
         </div>
-        <div class="header h3 text-success mt-2">Price Comparison Fridge Freezers</div>
-        <div  class="row">
-            <div v-for="product in prods2" class="col-6 col-sm-6 col-md-3 d-inline mb-3" >
-                    @include('inc.product-card')
-            </div>
-        </div>
-        <div class="header h3 text-success mt-2">Lowest Price Perfume</div>
-        <div  class="row">
-            <div v-for="product in prods3" class="col-6 col-sm-6 col-md-3 d-inline mb-3" >
-                    @include('inc.product-card')
-            </div>
-        </div>
-        <div class="header h3 text-success mt-2">Cheap Blu-Ray Players</div>
-        <div  class="row">
+        <div class="text-muted mt-5 text-uppercase"><small class="section-title">Recently Viewed</small></div>
+        <div  class="row mt-3">
             <div v-for="product in prods4" class="col-6 col-sm-6 col-md-3 d-inline mb-3" >
-                    @include('inc.product-card')
+                @include('inc.product-card')
             </div>
         </div>
-        <div class="header h3 text-success mt-2">Best Price Digital Cameras</div>
-        <div  class="row">
-            <div v-for="product in prods5" class="col-6 col-sm-6 col-md-3 d-inline mb-3" >
-                    @include('inc.product-card')
-            </div>
-        </div>
+    </div>
 
 </div>
     

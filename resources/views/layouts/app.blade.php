@@ -19,12 +19,11 @@
 </head>
 <body>
     <div id="app">
-        @include('inc.navigation')
-        <div class="container-fluid bg-success mb-0">
-            @include('inc.mega-menu')
-        </div>
+        @include('inc.header')
+        @include('inc.menu')
         
-        <main class="py-4">
+        
+        <main class="py-0">
             @include('inc.notifications')
             @yield('content')
         </main>

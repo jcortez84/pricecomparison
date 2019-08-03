@@ -12,7 +12,11 @@
         <div class="col-md-6 mt-md-0 mt-3">
 
           <!-- Content -->
-          <h5 class="">lowprices4u.co.uk</h5>
+          <h5 class="footer-brand">
+              <i class="far fa-gem navbar-logo"></i>
+              {{ config('app.name', 'LowPrices4u') }}
+          </h5><br>
+          
           <p class="muted">Since 2019, Lowprices4u.co.uk has helped thousands of bargain hunters find the best products at the best prices.</p>
 
           <p class="muted">Lowprices4u.co.uk is completely independent and free to use. Our vision is to be someone that you can always count on when comparing products and prices.</p>
@@ -30,16 +34,16 @@
 
             <ul class="list-unstyled">
               <li>
-                <a class="text-light" href="/page/about-us">About</a>
+                <a class="text-white" href="/page/about-us">About</a>
               </li>
               <li>
-                <a class="text-light" href="/page/privacy">Privacy</a>
+                <a class="text-white" href="/page/privacy">Privacy</a>
               </li>
               <li>
-                <a class="text-light" href="/page/terms">Terms</a>
+                <a class="text-white" href="/page/terms">Terms</a>
               </li>
               <li>
-                <a class="text-light" href="/page/cookies">Cookie policy</a>
+                <a class="text-white" href="/page/cookies">Cookie policy</a>
               </li>
             </ul>
 
@@ -54,16 +58,16 @@
 
             <ul class="list-unstyled">
               <li>
-                <a class="text-light" href="/retailers">Retailers</a>
+                <a class="text-white" href="/retailers">Retailers</a>
               </li>
               <li>
-                <a class="text-light" href="/brands">Brands</a>
+                <a class="text-white" href="/brands">Brands</a>
               </li>
               <li>
-                <a class="text-light" href="/categories">Categories</a>
+                <a class="text-white" href="/categories">Categories</a>
               </li>
               <li>
-                <a class="text-light" href="/contact">Contact us</a>
+                <a class="text-white" href="/contact">Contact us</a>
               </li>
             </ul>
 

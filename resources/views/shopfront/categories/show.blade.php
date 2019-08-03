@@ -4,12 +4,12 @@
 
 <div class="container">
     @include('inc.breadcrumb')
-<h1 class="h2 text-success">{{ $category->title }}</h1>
-<p>{{ $category->blurb }}</p>
+<h1 class="category-title text-muted">{{ $category->title }}</h1>
+<div class="hr mb-3"></div>
 <input type="hidden" id="catId" value="{{$category->id}}">
-    <div class="row">
+    <div class="row mb-2">
         @foreach (App\Category::where('parent_id', $category->id)->get() as $child)
-            <div class="col-md-3 ml-5"> <a href="/c/{{$child->slug}}">{{ $child->title }}</a></div>
+            <div class="col-md-1"> <a href="/c/{{$child->slug}}"><small class="text-secondary">{{ $child->title }}</small></a></div>
         @endforeach
     </div>
 
