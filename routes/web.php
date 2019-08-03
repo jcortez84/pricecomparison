@@ -54,6 +54,7 @@ Route::get('/admin/set_prices/{id}', 'Admin\ProductsController@set_min_max_price
 Route::get('/admin/set_all_prices', 'Admin\ProductsController@profile_all_prices');
 Route::get('/admin/image/{id}/download', 'Admin\ImagesController@download');
 Route::get('/admin/images/download-all', 'Admin\ImagesController@downloadAll');
+Route::get('/admin/images/force-download-all', 'Admin\ImagesController@forceDownloadAll');
 Route::resource('/admin/images', 'Admin\ImagesController');
 
 

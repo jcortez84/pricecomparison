@@ -11,7 +11,7 @@
             <div class="carousel-caption d-none d-md-block">
                     <h5 class="carousel-header">Computers & Software</h5>
                     <p class="carousel-blurb">
-                        <a href="/c/computers" class="btn btn-teal btn-lg rounded-0">Find desktop computers</a>
+                        <a href="/c/desktops" class="btn btn-teal btn-lg rounded-0">Find desktop computers</a>
                       Get ready for the new academic year.
                     </p>
                   </div>

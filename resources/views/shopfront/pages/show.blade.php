@@ -6,7 +6,7 @@
 <div class="container">
 <nav aria-label="breadcrumb">
         <ol class="breadcrumb rounded-0">
-                <li class="breadcrumb-item"><a class="text-dark" href="/">Home</a></li>
+                <li class="breadcrumb-item"><a class="text-muted" href="/">Home</a></li>
                 @if($page)
                 <li class="breadcrumb-item active" aria-current="page">{{$page->title}}</li>
                 @endif

@@ -9,6 +9,7 @@
           @else
             <a href="{{ url('/admin/images/download-all') }}" class="btn btn-info">Download All New Images</a>
           @endif
+          <a href="{{ url('/admin/images/force-download-all') }}" class="btn btn-warning">Force Download All Images</a>
         </div>
       </div>
       <div class="table-responsive">

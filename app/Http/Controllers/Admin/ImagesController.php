@@ -182,4 +182,19 @@ class ImagesController extends Controller
 
         return redirect()->back()->with('success', 'Product images have been downloaded');
     }
+
+        /**
+     * Force download all the new images
+     */
+    public function forceDownloadAll()
+    {
+        ini_set('max_execution_time', 0); //No limit
+       $links = ProductImageLink::all();
+        
+       foreach($links as $link){
+            $this->download($link->id);
+       }
+
+        return redirect()->back()->with('success', 'Product images have been downloaded');
+    }
 }
