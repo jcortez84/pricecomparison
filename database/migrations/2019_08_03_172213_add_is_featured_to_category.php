@@ -13,7 +13,7 @@ class AddIsFeaturedToCategory extends Migration
      */
     public function up()
     {
-        Schema::table('category', function (Blueprint $table) {
+        Schema::table('categories', function (Blueprint $table) {
             $table->integer('is_featured')->after('total_products');
         });
     }
@@ -25,7 +25,7 @@ class AddIsFeaturedToCategory extends Migration
      */
     public function down()
     {
-        Schema::table('category', function (Blueprint $table) {
+        Schema::table('categories', function (Blueprint $table) {
             $table->integer('is_featured');
         });
     }
