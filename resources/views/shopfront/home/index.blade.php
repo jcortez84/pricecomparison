@@ -10,7 +10,7 @@
                 @include('inc.product-card')
             </div>
         </div>
-        <div class="text-muted mt-5 text-uppercase"><small class="section-title">Recently Viewed</small></div>
+        <div class="text-muted mt-5 text-uppercase"><small class="section-title">Top Deals</small></div>
         <div  class="row mt-3">
             <div v-for="product in prods4" class="col-6 col-sm-6 col-md-3 d-inline mb-3" >
                 @include('inc.product-card')
