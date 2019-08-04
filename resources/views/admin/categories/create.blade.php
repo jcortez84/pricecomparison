@@ -26,6 +26,10 @@
           {!! Form::label('Blurb:') !!}
           {!! Form::text('blurb', '', ['class' => 'form-control', 'placeholder' => 'Meta description for search engines']) !!}
         </div>
+        <div class="form-group">
+            {!! Form::label('Featured:') !!}
+            {!! Form::select('is_featured', [0 => '--- No ---', 1 => '--- Yes ---'], '', ['class' => 'form-control']) !!}
+        </div>
         
         {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
 

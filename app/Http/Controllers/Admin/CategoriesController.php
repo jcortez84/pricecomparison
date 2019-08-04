@@ -60,6 +60,7 @@ class CategoriesController extends Controller
         $category->slug = makeSlug($request->input('slug'));
         $category->blurb = $request->input('blurb');
         $category->total_products = 0;
+        $category->is_featured = $request->input('is_featured');
         $category->save();
         return redirect('/admin/categories')->with('success', 'Category added.');
     }
@@ -110,6 +111,7 @@ class CategoriesController extends Controller
         $category->slug = makeSlug($request->input('slug'));
         $category->blurb = $request->input('blurb');
         $category->total_products = 0;
+        $category->is_featured = $request->input('is_featured');
 
         $category->save();
         return redirect('/admin/categories')->with('success', 'Category updated.');

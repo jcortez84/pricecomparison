@@ -3,5 +3,10 @@
     font-size: 1.3rem;
     font-weight: bold;
     color: #FFF;
-    float: left;
+    display: inline-block;
+  }
+
+  .page-footer {
+    background-color:#34495e;
+    color:#FFF;
   }

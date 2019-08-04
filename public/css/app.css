@@ -10685,11 +10685,11 @@ a.text-dark:focus {
 }
 
 .navbar-brand:hover .navbar-logo {
-  color: #FFF;
+  color: #4dc0b5;
 }
 
 .navbar-logo {
-  color: #4dc0b5;
+  color: #f66D9b;
 }
 
 .search-input {
@@ -10714,7 +10714,7 @@ a.text-dark:focus {
 
 .nav-a {
   display: inline-block;
-  padding: 9px;
+  margin-top: 8px;
 }
 
 .cat-title {
@@ -10729,7 +10729,6 @@ a.text-dark:focus {
   background-color: #f9f9f9;
   width: 100%;
   left: 0;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -10810,6 +10809,8 @@ a.text-dark:focus {
   left: 0;
   right: 0;
   padding: 15px;
+  margin-top: -2px;
+  border: 0;
 }
 
 .text-teal {
@@ -10853,11 +10854,11 @@ a.text-dark:focus {
 }
 
 .nav-menu-btn:hover {
-  border-bottom: 3px solid #FFF;
+  border-bottom: 5px solid #FFF;
 }
 
 .nav-menu-btn:active {
-  border-bottom: 3px solid #4dc0b5;
+  border-bottom: 5px solid #FFF;
 }
 
 .nav-menu-btn:last-child {
@@ -10875,8 +10876,8 @@ a.text-dark:focus {
 
 .carousel-header {
   font-family: "Codystar", sans-serif;
-  color: #4dc0b5;
-  font-size: 5rem;
+  color: #FFF;
+  font-size: 4rem;
 }
 
 .carousel-blurb {
@@ -10897,8 +10898,8 @@ a.text-dark:focus {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-color: #080d15;
-  opacity: 0.5;
+  background-color: #000000;
+  opacity: 0.4;
 }
 
 .carousel-image {
@@ -10971,6 +10972,7 @@ a.text-dark:focus {
 .breadcrumb {
   background-color: #f8fafc;
   margin-left: -15px;
+  font-size: 0.7rem;
 }
 
 .category-title {
@@ -10997,6 +10999,11 @@ a.text-dark:focus {
   font-size: 1.3rem;
   font-weight: bold;
   color: #FFF;
-  float: left;
+  display: inline-block;
+}
+
+.page-footer {
+  background-color: #34495e;
+  color: #FFF;
 }
 

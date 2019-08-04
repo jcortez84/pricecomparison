@@ -5,7 +5,7 @@
                 </button>
     
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <i class="far fa-gem navbar-logo"></i>
+                    <i class="fa fa-tags navbar-logo"></i>
                     {{ config('app.name', 'LowPrices4u') }}
                 </a>
                 <div class="collapse navbar-collapse" id="navbarSC">

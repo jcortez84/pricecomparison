@@ -4,12 +4,12 @@
 <div class="container">
 <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a class="text-dark" href="/">Home</a></li>
-                <li class="breadcrumb-item"><a class="text-dark" href="/brands">Brands</a></li>
+                <li class="breadcrumb-item"><a class="text-muted" href="/">Home</a></li>
+                <li class="breadcrumb-item"><a class="text-muted" href="/brands">Brands</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{$brand->name}}</li>
         </ol>
 </nav>       
-<h1 class="h2 text-success">{{$brand->name}} Products</h1>
+<h1 class="h2 text-muted">{{$brand->name}} Products</h1>
 <input type="hidden" id="brand_id" value="{{$brand->id}}">
 <div id="brand_products">
                 <section v-if="errored">

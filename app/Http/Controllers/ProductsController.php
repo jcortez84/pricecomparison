@@ -20,9 +20,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $categories = Category::where('is_featured', 1)->take(9)->get();
-
-        return view('shopfront.products.index')->with(compact('categories', $categories));
+        return view('shopfront.products.index');
     }
 
     /**
@@ -33,10 +31,8 @@ class ProductsController extends Controller
      */
     public function show($slug)
     {
-        $categories = Category::where('is_featured', 1)->take(9)->get();
         $product = Product::where('slug', $slug)->first();
-        //dd($product->prices());
-        return view('shopfront.products.show')->with(compact('categories', 'product'));
+        return view('shopfront.products.show')->with(compact('product'));
     }
 
     /**

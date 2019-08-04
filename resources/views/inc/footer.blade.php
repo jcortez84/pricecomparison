@@ -1,6 +1,5 @@
 <!-- Footer -->
-<div class="container-fluid"  style="background-color:#34495e; color:#FFF">
-  <footer class="container page-footer font-small blue pt-4" style="background-color:#34495e; color:#FFF">
+  <footer class="page-footer font-small blue pt-4">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
@@ -13,9 +12,11 @@
 
           <!-- Content -->
           <h5 class="footer-brand">
-              <i class="far fa-gem navbar-logo"></i>
+              <i class="fa fa-tags navbar-logo"></i>
               {{ config('app.name', 'LowPrices4u') }}
-          </h5><br>
+          </h5>
+          <br>
+          <br>
           
           <p class="muted">Since 2019, Lowprices4u.co.uk has helped thousands of bargain hunters find the best products at the best prices.</p>
 
@@ -81,10 +82,10 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">Peter Ncube © 2019
+    <div class="footer-copyright text-center py-3">{{ config('app.name', 'LowPrices4u') }} © 2019
     </div>
     <!-- Copyright -->
 
   </footer>
   <!-- Footer -->
-</div>
+

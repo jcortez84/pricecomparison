@@ -4,11 +4,11 @@
 <div class="container">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a class="text-dark" href="/">Home</a></li>
+            <li class="breadcrumb-item"><a class="text-muted" href="/">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Search results</li>
         </ol>
     </nav>
-<h1 class="h2 text-success">Search Results</h1>
+<h1 class="h2 text-muted">Search Results</h1>
 @if(Request::get('q'))
 <div id="products">
         
