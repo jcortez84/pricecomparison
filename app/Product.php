@@ -54,4 +54,9 @@ class Product extends Model
        return $this->hasMany(ProductCode::class);
     }
 
+    public function views()
+    {
+        return $this->hasMany(View::class);
+    }
+
 }

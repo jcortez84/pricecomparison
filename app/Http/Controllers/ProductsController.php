@@ -8,6 +8,8 @@ use App\Category;
 use App\Click;
 use App\Price;
 use App\ProductImage;
+use App\View;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -32,6 +34,11 @@ class ProductsController extends Controller
     public function show($slug)
     {
         $product = Product::where('slug', $slug)->first();
+        $view = new View;
+        $view->ip_address = Request()->ip();
+        $view->product_id = $product->id;
+        $view->save();
+
         return view('shopfront.products.show')->with(compact('product'));
     }
 
@@ -122,7 +129,20 @@ class ProductsController extends Controller
      */
     public function api_top_products()
     {
-        $products = Product::inRandomOrder()->with('images')->take(8)->get();
+       $products = DB::table('products')
+        ->join('product_images', 'products.id', '=', 'product_images.product_id')
+        ->join('views', 'products.id', '=', 'views.product_id')
+        ->select('products.*', DB::raw("count(views.product_id) as total"))
+        ->groupBy('products.id')->orderBy('total', 'desc')
+        ->take(4)
+        ->get();
+ 
+        $c = View::groupBy('product_id')
+        ->selectRaw('count(*) as total, product_id')->orderBy('total', 'desc')->get();
+
+        $ids = [$c[0]->product_id,$c[1]->product_id,$c[2]->product_id,$c[3]->product_id];
+
+        $products = Product::whereIn('id',$ids)->with('images')->take(4)->get();
         return response($products, 200);
     }
     /**
@@ -138,12 +158,16 @@ class ProductsController extends Controller
 
     /**
      * Get featured products for index page
-     * @param $cat_id
      * @return @json object
      */
-    public function api_index_products($cat_id)
+    public function api_top_deals()
     {
-        $products = Product::where('category_id', '=',$cat_id)->inRandomOrder()->with('images')->take(4)->get();
+        $c = Click::groupBy('product_id')
+        ->selectRaw('count(*) as total, product_id')->orderBy('total', 'desc')->get();
+
+        $ids = [$c[0]->product_id,$c[1]->product_id,$c[2]->product_id,$c[19]->product_id];
+
+        $products = Product::whereIn('id',$ids)->with('images')->take(4)->get();
         return response($products, 200);
     }
 }

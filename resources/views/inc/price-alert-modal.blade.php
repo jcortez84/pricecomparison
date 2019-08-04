@@ -5,7 +5,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content rounded-0">
             <div class="modal-header">
-              <h4 class="modal-title text-muted text-uppercase" id="priceAlertModalTitle">Set up Price Alert</h4>
+              <h4 class="small modal-title text-muted text-uppercase" id="priceAlertModalTitle">Set up Price Alert</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -13,7 +13,7 @@
             <div class="modal-body row">
               <div class="col-6">
                   <div class="col-auto">
-                      <label class="modal-title text-muted h5" for="target_price">1. Select target price</label>
+                      <label class="modal-title text-muted small text-uppercase" for="target_price">1. Select target price</label>
                       <div class="input-group mb-2 mt-5">
                         <div class="input-group-prepend">
                           <div class="input-group-text rounded-0"><em class="text-teal">£</em></div>
@@ -30,7 +30,7 @@
                   <span class="small mt-2 text-teal" v-html="product.title"></span>
                 </div>
                 <div class="form-group col-12 mt-2">
-                    <label class="text-muted modal-title h5 mt-2" for="email_alert">2. Enter your email address</label>
+                    <label class="text-muted modal-title  small text-uppercase" for="email_alert">2. Enter your email address</label>
                     <input name="email" type="email" class="form-control text-muted rounded-0" id="email_alert" placeholder="name@example.com">
                     <input type="hidden" name="product_id" value="{{$product->id}}" id="product_id">
                   </div>

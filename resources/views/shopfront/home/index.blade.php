@@ -6,13 +6,13 @@
     <div id="deals">
         <div class="text-muted mt-1 text-uppercase"><small class="section-title">Popular Products</small></div>
         <div  class="row mt-3">
-            <div v-for="product in prods3" class="col-6 col-sm-6 col-md-3 d-inline mb-3 card-group" >
+            <div v-for="product in popular_products" class="col-6 col-sm-6 col-md-3 d-inline mb-3 card-group" >
                 @include('inc.product-card')
             </div>
         </div>
-        <div class="text-muted mt-5 text-uppercase"><small class="section-title">Top Deals</small></div>
+        <div class="text-muted mt-3 text-uppercase"><small class="section-title">Top Deals</small></div>
         <div  class="row mt-3">
-            <div v-for="product in prods4" class="col-6 col-sm-6 col-md-3 d-inline mb-3" >
+            <div v-for="product in top_deals" class="col-6 col-sm-6 col-md-3 d-inline mb-3" >
                 @include('inc.product-card')
             </div>
         </div>
@@ -28,11 +28,8 @@
         el: '#deals',
         data () {
             return {
-            prods1: null,
-            prods2: null,
-            prods3: null,
-            prods4: null,
-            prods5: null,
+            popular_products: null,
+            top_deals: null,
             loading: true,
             errored: false
             }
@@ -43,24 +40,15 @@
             }
         },
         mounted () {
-            let prods1 = '/api/index-products/651';
-            let prods2 = '/api/index-products/380';
-            let prods3 = '/api/index-products/113';
-            let prods4 = '/api/index-products/551';
-            let prods5 = '/api/index-products/32';
+            let popular_products = '/api/top-products';
+            let top_deals = '/api/top-deals';
             axios.all([
-                axios.get(prods1),
-                axios.get(prods2),
-                axios.get(prods3),
-                axios.get(prods4),
-                axios.get(prods5)
+                axios.get(popular_products),
+                axios.get(top_deals)
             ])
-            .then(axios.spread((Res1,Res2,Res3,Res4,Res5) => {
-                this.prods1 = Res1.data,
-                this.prods2 = Res2.data,
-                this.prods3 = Res3.data,
-                this.prods4 = Res4.data,
-                this.prods5 = Res5.data
+            .then(axios.spread((Res1,Res2) => {
+                this.popular_products = Res1.data,
+                this.top_deals = Res2.data
             }))
             .catch(error => {
                 console.log(error)
