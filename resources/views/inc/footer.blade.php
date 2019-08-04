@@ -1,5 +1,6 @@
 <!-- Footer -->
-  <footer class="page-footer font-small blue pt-4">
+<div class="container-fluid page-footer">
+  <footer class="container page-footer font-small blue pt-4">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
@@ -87,5 +88,6 @@
     <!-- Copyright -->
 
   </footer>
+</div>
   <!-- Footer -->
 

@@ -9,7 +9,7 @@
         @endif
         <img v-else src="https://via.placeholder.com/200x150" class="card-img-top rounded-0" alt="no-image">
         <div class="card-body">
-            <h6 class="lead"> <small>@{{product.title.substring(0,50)+" ..."}}</small> </h6>
+            <h6> <small>@{{product.title.substring(0,100)+" ..."}}</small> </h6>
             <p class="card-title h3 "><small class="h6">from</small> <em class="text-pink">£@{{product.min_price}}</em></p>
         </div>
     </div>
