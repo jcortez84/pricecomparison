@@ -28,6 +28,19 @@ Route::post('/set-price-alert', 'AlertsController@store')->name('set_alert');
 Route::get('/contact', 'MessagesController@create')->name('contact');
 Route::post('/contact', 'MessagesController@store')->name('contact_store');
 
+/**
+ * Account routes
+ */
+Route::get('/account/profile', 'AccountController@profile')->name('profile');
+Route::post('/account/profile', 'AccountController@update_profile')->name('update_profile');
+
+Route::get('/account/lists', 'AccountController@lists')->name('lists');
+Route::post('/account/lists', 'AccountController@update_lists')->name('update_lists');
+
+Route::get('/account/alerts', 'AccountController@alerts')->name('alerts');
+Route::post('/account/alerts', 'AccountController@update_alerts')->name('update_alerts');
+
+
 
 /**
  * Admin routes declared below.

@@ -2,7 +2,17 @@
     height: 40px;
     padding: 0;
     margin: 0%;
+    
   }
+  /* Links inside the navbar */
+  .nav-menu a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    padding: 1px 6px;
+    text-decoration: none;
+  }
+    
   .nav-menu-ul {
     list-style-type: none;
     margin: 0;
@@ -74,15 +84,7 @@
     clear: both;
   }
   
-  /* Links inside the navbar */
-  .navbar a {
-    float: left;
-    font-size: 16px;
-    color: white;
-    padding: 1px 6px;
-    text-decoration: none;
-  }
-  
+
     /* Clear floats after the columns */
     .row:after {
       content: "";
@@ -103,3 +105,101 @@
       margin-top: -2px;
       border: 0;
     }
+
+@media only screen and (max-width: 767px) {
+  .nav-menu {
+    height: 2px;
+  }
+  .nav-a {
+    display: inline-block;
+    margin-top: 5px;
+  }
+  .cat-title {
+    font-size: 0.5rem;
+  
+  }
+
+.navbar-lowprices4u {
+  padding:5px;
+
+  .container {
+    margin: auto 0;
+  }
+}
+.container {
+  max-width: 100%;
+}
+
+  }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .nav-menu {
+      height: 30px;
+    }
+    /* Links inside the navbar */
+    .nav-menu a {
+      float: left;
+      font-size: 16px;
+      color: white;
+      padding: 1px 6px;
+      text-decoration: none;
+    }
+    .nav-a {
+      display: inline-block;
+      margin-top: 5px;
+    }
+    .cat-title {
+      font-size: 0.5rem;
+    
+    }
+      /* Links inside the navbar */
+  .nav-menu a {
+  float: left;
+  font-size: 11px;
+  color: white;
+  padding: 1px 3px;
+  text-decoration: none;
+  }
+
+  .navbar {
+    width: 100%;
+    padding: 0;
+  }
+  .navbar-lowprices4u {
+    padding:5px;
+
+    .container {
+      margin: auto 1px;
+    }
+  }
+  .container {
+    max-width: 100%;
+  }
+  .user-div {
+    float: right;
+    margin-left: auto;
+  }
+  .search-form {
+    padding-left: 5%;
+    max-width: 100%;
+    font-weight: 100;
+    color: #d6d5df;
+}
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px){
+  .nav-a {
+    display: inline-block;
+    margin-top: 9px;
+  }
+  .cat-title {
+    font-size: 0.7rem;
+  
+  }
+    /* Links inside the navbar */
+  .nav-menu a {
+  float: left;
+  font-size: 13px;
+  color: white;
+  padding: 1px 6px;
+  text-decoration: none;
+  }
+}

@@ -24,8 +24,13 @@
         
         
         <main class="py-0">
+            
+            @include('inc.mobile-search-form')
+            
             @include('inc.notifications')
+
             @yield('content')
+            
         </main>
         @include('inc.footer')
     </div>

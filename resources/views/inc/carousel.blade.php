@@ -8,7 +8,7 @@
           <div class="carousel-item active">
             <div class="overlay"></div>
             <img class="d-block w-100 carousel-image" src="/storage/banners/computer.jpg" alt="First slide">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
                     <h5 class="carousel-header">Computers & Software</h5>
                     <p class="carousel-blurb">
                         <a href="/c/desktops" class="btn btn-teal btn-lg rounded-0">Find desktop computers</a>
@@ -19,7 +19,7 @@
           <div class="carousel-item">
             <div class="overlay"></div>
             <img class="d-block w-100 carousel-image" src="/storage/banners/beauty.jpg" alt="Second slide">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
                     <h5 class="carousel-header">Health & Beauty</h5>
                     <p class="carousel-blurb">Looking and feeling good should not break the bank.
                       <a href="/c/fragrance" class="btn btn-teal btn-lg rounded-0">Check perfume prices</a>
@@ -29,7 +29,7 @@
           <div class="carousel-item">
             <div class="overlay"></div>
             <img class="d-block w-100 carousel-image" src="/storage/banners/garden.jpg" alt="Third slide">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
                     <h5 class="carousel-header">Home & Garden</h5>
                     <p class="carousel-blurb">
                       Summer is here, get all the <a href="/c/garden-tools" class="btn btn-teal btn-lg rounded-0">Garden tools</a> you need at reasonable prices.

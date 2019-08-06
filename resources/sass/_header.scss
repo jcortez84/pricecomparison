@@ -7,9 +7,21 @@
   }
   .search-form {
     padding-left: 5%;
-    width: 50%;
+    width: 60%;
     font-weight: 100;
     color: #d6d5df;
+  }
+  .mobile-search {
+    display: none;
+  }
+  @media only screen and (max-width: 767px) {
+    .mobile-search {
+      display: block;
+    }
+
+    .search-form {
+      display: none;
+    }
   }
   .user-div {
     float: right;
@@ -40,4 +52,7 @@
   .search-input {
     border: 0px;
     color: $light;
+  }
+  .b-0 {
+    border: 0;
   }

@@ -15,11 +15,11 @@
                                 </div>
                         </div>    
                         <div class="row mb-3">
-                                <div class="col-md-4">
+                                <div class="col-md-6 col-lg-4">
                                     <img v-if="product.images.path !== null" :src="'/'+product.images.path" class="product-img-main" :alt="product.title" id="prod_image">
                                     <img v-else src="https://via.placeholder.com/200" class="product-img-main" alt="no-image">
                                 </div>
-                                <div class="col-md-8" >
+                                <div class="col-md-6 col-lg-8" >
                                         <h1 class="product-name text-muted"  v-html="product.title">@{{product.title}}</h1>
                                         <p v-if="product.description" class="lead text-muted"><small v-html="product.description.substring(0,150)+'...'"></small></p>
                                         <p class="lead text-muted"><small>Lowest price:</small> <em class="h2 text-pink">£@{{formatPrice(product.min_price)}}</em>&nbsp;&nbsp;
@@ -43,12 +43,12 @@
                                     <div v-if="prices" v-for="price in prices" class="row mb-1" >
                                             <div class="card-body row" style="padding:0">
                                                 
-                                                <div class="col-sm"> 
+                                                <div class="col-md-2"> 
                                                         <img class="price-logo"  v-if="price.logo" :src="'/'+price.logo">
                                                         <h6 v-if="!price.logo" class="text-muted mt-auto"> @{{price.name}}</h6>
                                                 </div>
                                                 <div class="col-sm">
-                                                        <b class="text-muted mx-auto"> @{{price.product_title}}</b>
+                                                        <span class="text-muted mx-auto"> @{{price.product_title}}</span>
                                                 </div>
                                                 <div class="col-sm">
                                                         <h3 class="text-muted"><em class="text-pink">£@{{formatPrice(price.amount)}}</em></h3>

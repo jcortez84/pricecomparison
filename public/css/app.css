@@ -10654,9 +10654,23 @@ a.text-dark:focus {
 
 .search-form {
   padding-left: 5%;
-  width: 50%;
+  width: 60%;
   font-weight: 100;
   color: #d6d5df;
+}
+
+.mobile-search {
+  display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .mobile-search {
+    display: block;
+  }
+
+  .search-form {
+    display: none;
+  }
 }
 
 .user-div {
@@ -10697,10 +10711,24 @@ a.text-dark:focus {
   color: #95999e;
 }
 
+.b-0 {
+  border: 0;
+}
+
 .nav-menu {
   height: 40px;
   padding: 0;
   margin: 0%;
+}
+
+/* Links inside the navbar */
+
+.nav-menu a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  padding: 1px 6px;
+  text-decoration: none;
 }
 
 .nav-menu-ul {
@@ -10781,16 +10809,6 @@ a.text-dark:focus {
   clear: both;
 }
 
-/* Links inside the navbar */
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  padding: 1px 6px;
-  text-decoration: none;
-}
-
 /* Clear floats after the columns */
 
 .row:after {
@@ -10811,6 +10829,118 @@ a.text-dark:focus {
   padding: 15px;
   margin-top: -2px;
   border: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .nav-menu {
+    height: 2px;
+  }
+
+  .nav-a {
+    display: inline-block;
+    margin-top: 5px;
+  }
+
+  .cat-title {
+    font-size: 0.5rem;
+  }
+
+  .navbar-lowprices4u {
+    padding: 5px;
+  }
+
+  .navbar-lowprices4u .container {
+    margin: auto 0;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .nav-menu {
+    height: 30px;
+  }
+
+  /* Links inside the navbar */
+
+  .nav-menu a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    padding: 1px 6px;
+    text-decoration: none;
+  }
+
+  .nav-a {
+    display: inline-block;
+    margin-top: 5px;
+  }
+
+  .cat-title {
+    font-size: 0.5rem;
+  }
+
+  /* Links inside the navbar */
+
+  .nav-menu a {
+    float: left;
+    font-size: 11px;
+    color: white;
+    padding: 1px 3px;
+    text-decoration: none;
+  }
+
+  .navbar {
+    width: 100%;
+    padding: 0;
+  }
+
+  .navbar-lowprices4u {
+    padding: 5px;
+  }
+
+  .navbar-lowprices4u .container {
+    margin: auto 1px;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .user-div {
+    float: right;
+    margin-left: auto;
+  }
+
+  .search-form {
+    padding-left: 5%;
+    max-width: 100%;
+    font-weight: 100;
+    color: #d6d5df;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .nav-a {
+    display: inline-block;
+    margin-top: 9px;
+  }
+
+  .cat-title {
+    font-size: 0.7rem;
+  }
+
+  /* Links inside the navbar */
+
+  .nav-menu a {
+    float: left;
+    font-size: 13px;
+    color: white;
+    padding: 1px 6px;
+    text-decoration: none;
+  }
 }
 
 .text-teal {
@@ -10902,8 +11032,52 @@ a.text-dark:focus {
   opacity: 0.4;
 }
 
-.carousel-image {
-  height: 70vh;
+@media only screen and (max-width: 500px) {
+  .carousel-image {
+    height: unset;
+  }
+
+  .carousel-header {
+    display: none;
+  }
+
+  .carousel-blurb {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 767px) {
+  .carousel-image {
+    height: unset;
+  }
+
+  .carousel-header {
+    font-family: "Codystar", sans-serif;
+    color: #FFF;
+    font-size: 2.5rem;
+    display: inline;
+  }
+
+  .carousel-blurb {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .carousel-image {
+    height: unset;
+  }
+
+  .carousel-header {
+    font-family: "Codystar", sans-serif;
+    color: #FFF;
+    font-size: 2.5rem;
+    display: inline;
+  }
+
+  .carousel-blurb {
+    font-size: 1.2rem;
+  }
 }
 
 .card-link {
@@ -10963,6 +11137,28 @@ a.text-dark:focus {
 .alert-image {
   height: 200px;
   width: 210px;
+}
+
+@media only screen and (max-width: 767px) {
+  .price-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .product-img-main {
+    max-width: 100%;
+    height: 300px;
+    margin: auto;
+  }
+
+  .product-name {
+    font-size: 1.1rem;
+  }
+
+  .alert-image {
+    height: 200px;
+    width: 150px;
+  }
 }
 
 .page-heading {
