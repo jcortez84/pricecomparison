@@ -40,24 +40,24 @@
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active p-3" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                                    <div v-if="prices" v-for="price in prices" class="row mb-1" >
-                                            <div class="card-body row" style="padding:0">
+                                    <div v-if="prices" v-for="price in prices" class="row mb-0" >
+                                            <div class="card-body row ">
                                                 
-                                                <div class="col-md-2"> 
+                                                <div class="col-md-1 col-2"> 
                                                         <img class="price-logo"  v-if="price.logo" :src="'/'+price.logo">
                                                         <h6 v-if="!price.logo" class="text-muted mt-auto"> @{{price.name}}</h6>
                                                 </div>
-                                                <div class="col-sm">
+                                                <div class="col-md-6 col-10">
                                                         <span class="text-muted mx-auto"> @{{price.product_title}}</span>
                                                 </div>
-                                                <div class="col-sm">
+                                                <div class="col-md-3 col-6">
                                                         <h3 class="text-muted"><em class="text-pink">£@{{formatPrice(price.amount)}}</em></h3>
                                                         <p class="text-muted small"> £@{{ formatPrice(Number(price.amount) + Number(price.shipping)) }} Incl. delivery<br>
                                                         <em class="small text-danger">* Updated at: @{{price.updated_at}}</em>
                                                         </p>
                 
                                                 </div>
-                                                <div class="col-sm ">
+                                                <div class="col-md-2 col-6">
                                                     <a v-bind:href="'/gotostore/'+ price.id +'?task=bhsafg272bygv21rigkvby4gfvob'" target="_blank">
                                                         <button class="btn btn-go btn-lg rounded-0">Go to store</button>
                                                     </a>
