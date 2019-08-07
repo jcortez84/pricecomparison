@@ -105,14 +105,16 @@
       margin-top: -1px;
       border: 0;
     }
+    .mobile-menu {
+      display: none;
+    }
 
 @media only screen and (max-width: 767px) {
+  .megamenu-container {
+    display: none;
+  }
   .nav-menu {
     height: 2px;
-  }
-  .nav-a {
-    display: inline-block;
-    margin-top: 5px;
   }
   .cat-title {
     font-size: 0.5rem;
@@ -134,6 +136,10 @@
 }
 .menu-col-padding {
   padding: 0 3px;
+}
+.mobile-menu {
+  display: block;
+  z-index: 1000;
 }
 
 }

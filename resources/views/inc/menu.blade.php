@@ -3,7 +3,7 @@
         <div class="row menu-row-margin">
             <div class="col-12 menu-col-padding">
                 <nav class="navbar navbar-expand-md navbar-light bg-teal nav-menu p-0">
-                   <div class="collapse navbar-collapse" id="navbarSC" style="height:100%">
+                   <div class="collapse navbar-collapse">
                         <ul class="navbar-nav nav-menu-ul">
                             @foreach(App\Category::where('is_featured', 1)->take(9)->get() as $category )
                             <li class="nav-menu-btn">

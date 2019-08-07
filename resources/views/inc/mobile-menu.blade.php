@@ -1,14 +1,11 @@
-<div class="container-fluid mb-0 bg-teal">
-@if(isset($categories))
-  <div class="bg-teal">
-    <div class="">
+<div class="container-fluid " id="navbarSC">
       <div class="container">
-        <nav class="nav-menu bg-teal">
-          <div class="navbar" id="navbarSC">
+        <nav class="nav-menu">
+          <div class="navbar">
             <ul class="nav-menu-ul" >
 
               
-              @foreach($categories as $category )
+              @foreach(App\Category::where('is_featured', 1)->take(9)->get() as $category )
               <li class="nav-menu-btn">
 
                 <a class="btn-purple text-uppercase nav-a" id="dropdown{{$category->id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="cat-title" >{{$category->title}}</span></a>
@@ -31,7 +28,4 @@
             </div>
           </nav>
         </div>
-      </div>
-    </div>
-@endif
 </div>

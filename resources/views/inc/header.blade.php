@@ -7,7 +7,7 @@
             <i class="fa fa-tags navbar-logo"></i>
                     {{ config('app.name', 'LowPrices4u') }}
         </a>
-        <div class="collapse navbar-collapse" id="navbarSC">
+        <div class="collapse navbar-collapse">
             <!-- Left Side Of Navbar -->
             @include('inc.search-form')
             

@@ -21,6 +21,7 @@
     <div id="app">
         @include('inc.header')
         @include('inc.menu')
+        @include('inc.mobile-menu')
         
         
         <main class="py-0">
