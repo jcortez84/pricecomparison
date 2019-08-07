@@ -41,7 +41,7 @@
             </div>
             
             <div class="modal-footer">
-              <button type="submit" class="btn btn-go btn-block rounded-0" >Update price alert</button>
+              <button type="submit" class="btn btn-teal-outline btn-block rounded-0" >Update price alert</button>
               
             </div>
             <p class="container small text-muted">I agree that lowprices4u.co.uk will inform me of special shop offers and services. I can withdraw my consent to this at any time, as outlined in the <a href="/page/privacy">Privacy Policy</a>.</p>

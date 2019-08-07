@@ -7,7 +7,7 @@
                     <span class="far fa-user fa-2x user-icon"></span>
                 </div>
             
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <div class="dropdown-menu dropdown-menu-right rounded-0 mt-4" aria-labelledby="navbarDropdown">
                     <li class="dropdown-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
@@ -23,7 +23,7 @@
             <div id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 <span class="far fa-user fa-2x user-icon"></span>
             </div>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-right rounded-0 mt-4" aria-labelledby="navbarDropdown">
             <li class="nav-item">
                 <a class="dropdown-item" href="/account/profile">
                     {{-- Auth::user()->name --}} 

@@ -41,11 +41,11 @@
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active p-3" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                     <div v-if="prices" v-for="price in prices" class="row mb-0" >
-                                            <div class="card-body row ">
+                                            <div class="card-body p-0 row mb-0">
                                                 
                                                 <div class="col-md-1 col-2"> 
                                                         <img class="price-logo"  v-if="price.logo" :src="'/'+price.logo">
-                                                        <h6 v-if="!price.logo" class="text-muted mt-auto"> @{{price.name}}</h6>
+                                                        <h6 class="text-muted small"> @{{price.name}}</h6>
                                                 </div>
                                                 <div class="col-md-6 col-10">
                                                         <span class="text-muted mx-auto"> @{{price.product_title}}</span>
@@ -59,14 +59,14 @@
                                                 </div>
                                                 <div class="col-md-2 col-6">
                                                     <a v-bind:href="'/gotostore/'+ price.id +'?task=bhsafg272bygv21rigkvby4gfvob'" target="_blank">
-                                                        <button class="btn btn-go btn-lg rounded-0">Go to store</button>
+                                                        <button class="btn btn-teal-outline btn-lg rounded-0">Go to store</button>
                                                     </a>
                                                 </div>
                                             </div>
                                             <hr class="alert-light col-12">
                                     </div>
                             </div>
-                            <div class="tab-pane fade p-3" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" v-html="product.description">@{{product.description}}</div>
+                            <div class="tab-pane fade p-3" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" v-html="product.description"></div>
                         </div>
                     </section>
                 </div>

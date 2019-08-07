@@ -10827,7 +10827,7 @@ a.text-dark:focus {
   left: 0;
   right: 0;
   padding: 15px;
-  margin-top: -2px;
+  margin-top: -1px;
   border: 0;
 }
 
@@ -10855,6 +10855,14 @@ a.text-dark:focus {
 
   .container {
     max-width: 100%;
+  }
+
+  .menu-row-margin {
+    margin: 0;
+  }
+
+  .menu-col-padding {
+    padding: 0 3px;
   }
 }
 
@@ -10902,11 +10910,12 @@ a.text-dark:focus {
   }
 
   .navbar-lowprices4u .container {
-    margin: auto 1px;
+    margin: 0 !important;
   }
 
   .container {
     max-width: 100%;
+    margin: 0;
   }
 
   .user-div {
@@ -10920,12 +10929,20 @@ a.text-dark:focus {
     font-weight: 100;
     color: #d6d5df;
   }
+
+  .menu-row-margin {
+    margin: 0;
+  }
+
+  .menu-col-padding {
+    padding: 0 3px;
+  }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .nav-a {
     display: inline-block;
-    margin-top: 9px;
+    margin-top: 8px;
   }
 
   .cat-title {
@@ -10960,18 +10977,70 @@ a.text-dark:focus {
 }
 
 .btn-teal {
+  background-color: #4dc0b5;
+  color: #FFF;
+}
+
+.btn-teal:hover {
   background-color: #FFF;
   color: #4dc0b5;
+}
+
+.btn-teal-outline {
+  border: #4dc0b5 2px solid;
+  background-color: #FFF;
+  color: #4dc0b5;
+}
+
+.btn-teal-outline:hover {
+  background-color: #4dc0b5;
+  color: #FFF;
+}
+
+.btn-teal-search {
+  background-color: #FFF;
+  color: #4dc0b5;
+}
+
+.btn-teal-search:hover {
+  background-color: #FFF;
+  color: #4dc0b5;
+}
+
+.btn-pink {
+  background-color: #f66D9b;
+  color: #FFF;
+}
+
+.btn-pink:hover {
+  background-color: #FFF;
+  color: #f66D9b;
+}
+
+.btn-pink-outline {
+  border: #f66D9b 2px solid;
+  background-color: #FFF;
+  color: #f66D9b;
+}
+
+.btn-pink-outline:hover {
+  background-color: #f66D9b;
+  color: #FFF;
+}
+
+.btn-pink-search {
+  background-color: #FFF;
+  color: #f66D9b;
+}
+
+.btn-pink-search:hover {
+  background-color: #FFF;
+  color: #f66D9b;
 }
 
 .btn-menu {
   height: 100%;
   cursor: pointer;
-}
-
-.btn-teal:hover {
-  background-color: #4dc0b5;
-  color: #FFF;
 }
 
 .nav-menu-btn {
@@ -11121,17 +11190,6 @@ a.text-dark:focus {
 .price-logo {
   width: 50px;
   height: 50px;
-}
-
-.btn-go {
-  background-color: #4dc0b5;
-  color: #FFF;
-}
-
-.btn-go:hover {
-  border-color: #4dc0b5;
-  background-color: #FFF;
-  color: #4dc0b5;
 }
 
 .alert-image {

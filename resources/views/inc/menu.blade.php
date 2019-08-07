@@ -1,7 +1,7 @@
 <div class="container-fluid bg-teal p-0 mb-0">
     <div class="container bg-teal p-0">
-        <div class="row">
-            <div class="col-12">
+        <div class="row menu-row-margin">
+            <div class="col-12 menu-col-padding">
                 <nav class="navbar navbar-expand-md navbar-light bg-teal nav-menu p-0">
                    <div class="collapse navbar-collapse" id="navbarSC" style="height:100%">
                         <ul class="navbar-nav nav-menu-ul">

@@ -1,16 +1,61 @@
+//Teal buttons
 .btn-teal {
+    background-color: $teal;
+    color: #FFF;
+  }
+.btn-teal:hover {
+    background-color: #FFF;
+    color: $teal; 
+  }
+.btn-teal-outline {
+    border: $teal 2px solid;
     background-color: #FFF;
     color: $teal;
   }
-  .btn-menu {
+.btn-teal-outline:hover {
+    background-color: $teal;
+    color: #FFF; 
+}
+.btn-teal-search {
+  background-color: #FFF;
+  color: $teal;
+ }
+.btn-teal-search:hover {
+  background-color: #FFF;
+  color: $teal;
+} 
+  //Pink buttons
+.btn-pink {
+    background-color: $pink;
+    color: #FFF;
+  }
+.btn-pink:hover {
+    background-color: #FFF;
+    color: $pink; 
+  }
+.btn-pink-outline {
+    border: $pink 2px solid;
+    background-color: #FFF;
+    color: $pink;
+  }
+.btn-pink-outline:hover {
+    background-color: $pink;
+    color: #FFF; 
+  }
+.btn-pink-search {
+  background-color: #FFF;
+  color: $pink;
+ }
+.btn-pink-search:hover {
+  background-color: #FFF;
+  color: $pink;
+} 
+// Generic buttons for the menu
+.btn-menu {
     height: 100%;
     cursor: pointer;
   }
-  .btn-teal:hover {
-    background-color: $teal;
-    color: #FFF; 
-  }
-  .nav-menu-btn {
+.nav-menu-btn {
     color: #FFF;
     display: inline-block;
     border-right: 0px solid #FFF;
@@ -19,13 +64,13 @@
     margin: 0%;
 
   }
-  .nav-menu-btn:hover {
+.nav-menu-btn:hover {
     border-bottom: 5px solid #FFF;
   }
-  .nav-menu-btn:active {
+.nav-menu-btn:active {
     border-bottom: 5px solid #FFF;
   }
   
-  .nav-menu-btn:last-child {
+.nav-menu-btn:last-child {
     border-right: none;
   }
