@@ -1,6 +1,8 @@
 
     <!-- Modal -->
-    {!! Form::open(['url' => '/update-price-alert', 'method'=>'POST']) !!}
+    <form method="POST" action="{{ route('update_alerts', $alert->id) }}">
+      @csrf
+      @method('PUT')
       <div class="modal fade" id="priceAlertModal_{{$alert->product_id}}" tabindex="-1" role="dialog" aria-labelledby="priceAlertModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content rounded-0">
@@ -48,4 +50,4 @@
           </div>
         </div>
       </div>
-      {!! Form::close() !!}
+    </form>

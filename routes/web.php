@@ -32,13 +32,13 @@ Route::post('/contact', 'MessagesController@store')->name('contact_store');
  * Account routes
  */
 Route::get('/account/profile', 'AccountController@profile')->name('profile');
-Route::post('/account/profile', 'AccountController@update_profile')->name('update_profile');
+Route::put('/account/profile/{id}', 'AccountController@update_profile')->name('update_profile');
 
 Route::get('/account/lists', 'AccountController@lists')->name('lists');
-Route::post('/account/lists', 'AccountController@update_lists')->name('update_lists');
+Route::put('/account/lists{id}', 'AccountController@update_lists')->name('update_lists');
 
 Route::get('/account/alerts', 'AccountController@alerts')->name('alerts');
-Route::post('/account/alerts', 'AccountController@update_alerts')->name('update_alerts');
+Route::put('/account/alerts{id}', 'AlertsController@update')->name('update_alerts');
 
 
 

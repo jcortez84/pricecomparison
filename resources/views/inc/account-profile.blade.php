@@ -4,9 +4,9 @@
         <div class="col-md-8">
             <div class="card mt-1 mb-5">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('update_profile') }}">
+                    <form method="POST" action="{{ route('update_profile', Auth::user()->id) }}">
                         @csrf
-
+                        @method('PUT')
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 

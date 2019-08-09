@@ -24,7 +24,7 @@
   
   .nav-a {
     display: inline-block;
-    margin-top: 8px;
+    margin-top: 9px;
   }
   .cat-title {
     font-size: 0.8rem;
@@ -147,6 +147,9 @@
     .nav-menu {
       height: 30px;
     }
+    .nav-menu-btn {
+      height: 30px;
+    }
     /* Links inside the navbar */
     .nav-menu a {
       float: left;
@@ -157,7 +160,7 @@
     }
     .nav-a {
       display: inline-block;
-      margin-top: 5px;
+      margin-top: 12px;
     }
     .cat-title {
       font-size: 0.5rem;
@@ -207,7 +210,7 @@
 @media only screen and (min-width: 992px) and (max-width: 1200px){
   .nav-a {
     display: inline-block;
-    margin-top: 8px;
+    margin-top: 9px;
   }
   .cat-title {
     font-size: 0.7rem;

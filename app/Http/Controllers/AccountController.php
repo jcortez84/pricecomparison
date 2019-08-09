@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Preference;
 
 class AccountController extends Controller
 {
@@ -25,7 +26,34 @@ class AccountController extends Controller
      */
     public function update_profile(Request $request, $id)
     {
-        //
+        $clean_data = $request->validate([
+            'phone' => 'max:21',
+            'newsletter' => 'max:10',
+            'alerts' => 'max:10'
+        ]);
+
+        $preference = Preference::find('id');
+
+        $newsOn = (isset($clean_data['newsletter']))?'1':'0';
+        $alertsOn = (isset($clean_data['alerts']))?'1':'0';
+
+        if($preference){
+            $preference->phone = $clean_data['phone'];
+            $preference->newsletters = $newsOn;
+            $preference->alerts = $alertsOn;
+
+            $preference->save();
+        }else{
+            $preference = new Preference;
+            $preference->user_id = $id;
+            $preference->phone = $clean_data['phone'];
+            $preference->newsletters = $newsOn;
+            $preference->alerts = $alertsOn;
+
+            $preference->save();
+        }
+
+        return back()->with('success', 'Your profile has been updated');
     }
     /**
      * Display a listing of the resource.
