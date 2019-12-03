@@ -223,6 +223,7 @@ class MerchantsController extends Controller
                 $merchant->id = $request->affiliate.''.$data[0];
                 $merchant->user_id = 1;
                 $merchant->name = $data[1];
+                $merchant->logo = $data[2];
                 $merchant->slug = makeSlug($data[1]);
                 $merchant->is_valid = 1;
                 $merchant->save();

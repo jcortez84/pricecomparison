@@ -10646,9 +10646,9 @@ a.text-dark:focus {
 
 .navbar-lowprices4u {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  background-color: #40739e;
+  background-color: #f9f9f9;
   padding: 15px;
-  color: #f9f9f9;
+  color: #40739e;
   align-items: center;
 }
 
@@ -10683,19 +10683,19 @@ a.text-dark:focus {
 }
 
 .user-icon:hover {
-  color: #f8fafc;
+  color: #40739e;
 }
 
 .navbar-brand {
   font-family: "Ubuntu", sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #FFF;
+  color: #40739e;
   float: left;
 }
 
 .navbar-brand:hover {
-  color: #FFF;
+  color: #40739e;
 }
 
 .navbar-brand:hover .navbar-logo {
@@ -11011,7 +11011,7 @@ a.text-dark:focus {
 
 .btn-teal-search {
   background-color: #FFF;
-  color: #4dc0b5;
+  color: #40739e;
 }
 
 .btn-teal-search:hover {

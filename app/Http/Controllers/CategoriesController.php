@@ -15,7 +15,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $list = Category::where('parent_id', 0)->get();
+        $list = Category::where('is_featured', 1)->get();
         
         return view('shopfront.categories.index')->with(compact('list'));
     }

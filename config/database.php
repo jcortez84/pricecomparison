@@ -53,7 +53,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'strict' => true,
-            'engine' => null,
+            'engine' => 'InnoDB',
             'options'  => array(PDO::MYSQL_ATTR_LOCAL_INFILE => true),
         ],
 

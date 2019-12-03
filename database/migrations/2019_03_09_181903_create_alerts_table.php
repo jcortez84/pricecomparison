@@ -16,7 +16,7 @@ class CreateAlertsTable extends Migration
         Schema::create('alerts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id');
-            $table->float('target_amout');
+            $table->integer('target_price');
             $table->text('email');
             $table->timestamps();
         });

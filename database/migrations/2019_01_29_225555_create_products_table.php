@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('category_id');
+            $table->integer('category_id');
             $table->string('title');
             $table->string('slug');
             $table->string('mpn', 50)->nullable();  // Manufacturer Part Number
@@ -26,7 +26,7 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->unsignedDecimal('min_price', 9, 2);
             $table->unsignedDecimal('max_price', 9, 2);
-            $table->unsignedInteger('brand_id')->nullable();
+            $table->integer('brand_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

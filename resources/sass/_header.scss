@@ -1,58 +1,70 @@
 .navbar-lowprices4u {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-    background-color: $bgcolor;
+    background-color: #f9f9f9;
     padding: 15px;
-    color: #f9f9f9;
+    color: $bgcolor;
     align-items: center;
-  }
-  .search-form {
+}
+
+.search-form {
     padding-left: 5%;
     width: 60%;
     font-weight: 100;
     color: #d6d5df;
-  }
-  .mobile-search {
+}
+
+.mobile-search {
     display: none;
-  }
-  @media only screen and (max-width: 767px) {
+}
+
+@media only screen and (max-width: 767px) {
     .mobile-search {
-      display: block;
+        display: block;
     }
 
     .search-form {
-      display: none;
+        display: none;
     }
-  }
-  .user-div {
+}
+
+.user-div {
     float: right;
     margin-left: 45%;
-  }
-  .user-icon {
+}
+
+.user-icon {
     cursor: pointer;
-  }
-  .user-icon:hover {
-    color: $body-bg;
-  }
-  .navbar-brand {
+}
+
+.user-icon:hover {
+    color: $bgcolor;
+}
+
+.navbar-brand {
     font-family: 'Ubuntu', sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
-    color: #FFF;
+    color: $bgcolor;
     float: left;
-  }
-  .navbar-brand:hover {
-    color: #FFF;
+}
+
+.navbar-brand:hover {
+    color: $bgcolor;
+
     .navbar-logo {
-      color: $teal;
+        color: $teal;
     }
-  }
-  .navbar-logo {
+}
+
+.navbar-logo {
     color: $pink;
-  }
-  .search-input {
+}
+
+.search-input {
     border: 0px;
     color: $light;
-  }
-  .b-0 {
+}
+
+.b-0 {
     border: 0;
-  }
+}

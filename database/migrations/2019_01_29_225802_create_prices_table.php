@@ -19,7 +19,7 @@ class CreatePricesTable extends Migration
             $table->string('merchant_id', 11);
             $table->unsignedDecimal('amount', 9,2);
             $table->unsignedDecimal('shipping', 9,2)->nullable();
-            $table->string('product_title', 191);
+            $table->string('product_title', 300);
             $table->string('promo_text', 191)->nullable();
             $table->text('buy_link')->nullable();
             $table->softDeletes();
