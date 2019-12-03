@@ -13,6 +13,7 @@ use App\Category;
 use App\ProductCodes as ProductCode;
 use App\Price;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -27,7 +28,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(10);
+        $products = Product::orderBy('id', 'DESC')->paginate(10);
         if(Request()->get('q') !== null){
             $q = Request()->get('q');
             $products = Product::where('title','like', '%'.$q.'%')
@@ -37,6 +38,7 @@ class ProductsController extends Controller
             ->orWhere('gtin', 'like', '%'.$q.'%')
             ->orWhere('isbn', 'like', '%'.$q.'%')
             ->orWhere('description', 'like', '%'.$q.'%')
+            ->orderBy('id', 'DESC')
             ->paginate(10);   
         }
         return view('admin.products.index', ['products' => $products->appends(Input::except('page'))])->with('products', $products);

@@ -15,7 +15,7 @@ class MigrationController extends Controller
      */
     public function index()
     {
-        $migrations = Migration::paginate(10);
+        $migrations = Migration::orderBy('id', 'DESC')->paginate(10);
         
         return view('admin.migrations.index')->with(compact('migrations'));
     }
@@ -83,6 +83,9 @@ class MigrationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $m = Migration::find($id);
+
+        $m->delete();
+        return back()->with('success', 'Delete successful');
     }
 }

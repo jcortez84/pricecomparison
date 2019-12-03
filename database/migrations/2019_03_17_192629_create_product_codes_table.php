@@ -24,6 +24,7 @@ class CreateProductCodesTable extends Migration
             $table->string('upc')->nullable();
             $table->timestamps();
         });
+        DB::statement('ALTER TABLE `product_codes` ADD FULLTEXT full(`title`,`mpn`,`ean`,`upc`,`gtin`,`isbn`)');
     }
 
     /**

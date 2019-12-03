@@ -24,7 +24,7 @@ class ImagesController extends Controller
     public function index()
     {
         $merchant = null;
-        $images = ProductImageLink::where('is_downloaded', '0')->paginate(10);
+        $images = ProductImageLink::where('is_downloaded', '0')->orderBy('id', 'DESC')->paginate(10);
         if(Request()->get('mId')){
             $mId = Request()->get('mId');
             $merchant = $mId;

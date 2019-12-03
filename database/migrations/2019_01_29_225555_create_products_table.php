@@ -30,6 +30,7 @@ class CreateProductsTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+        DB::statement('ALTER TABLE `products` ADD FULLTEXT full(`title`,`mpn`,`ean`,`upc`,`gtin`,`isbn`,`description`)');
     }
 
     /**
