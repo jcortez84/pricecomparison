@@ -134,7 +134,9 @@ class DatafeedsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $feed = Datafeed::find($id);
+        $feed->delete();
+        return redirect()->back()->with('success', 'Feed deleted successfuly');
     }
 
     /**
