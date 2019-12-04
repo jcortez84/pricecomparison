@@ -37,6 +37,7 @@ Route::get('search/{q}', 'ResultsController@search')->name('search');
 Route::get('top-products', 'ProductsController@api_top_products')->name('top_products');
 
 Route::get('top-deals', 'ProductsController@api_top_deals')->name('top_deals');
+Route::get('category-prods/{id}', 'ProductsController@api_category_prods')->name('category_prods');
  
 // Route::post('products', function() {
 //     return  response()->json([

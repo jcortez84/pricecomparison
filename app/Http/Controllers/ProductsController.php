@@ -152,7 +152,7 @@ class ProductsController extends Controller
      */
     public function api_featured_products()
     {
-        $products = Product::where('category_id', '=',651)->inRandomOrder()->with('images')->take(4)->get();
+        $products = Product::where('category_id', '=',651)->inRandomOrder()->with('images')->take(10)->get();
         return response($products, 200);
     }
 
@@ -162,12 +162,27 @@ class ProductsController extends Controller
      */
     public function api_top_deals()
     {
+        $products = Product::inRandomOrder()->with('images')->take(10)->get();
         $c = Click::groupBy('product_id')
-        ->selectRaw('count(*) as total, product_id')->orderBy('total', 'desc')->get();
+        ->selectRaw('count(id) as total, product_id')->orderBy('total', 'desc')->limit(4)->pluck('product_id');
+        if(sizeof($c)> 0){
+            // $ids = [$c[0]->product_id,$c[1]->product_id,$c[2]->product_id,$c[3]->product_id];
+            $products = Product::whereIn('id',$c)->with('images')->take(10)->get();
+        }
+        return response($products, 200);
+    }
+    /**
+     * Get featured products for index page
+     * @return @json object
+     */
+    public function api_category_prods($id)
+    {
+        $cats = Category::where('parent_id', $id)->pluck('id');
 
-        $ids = [$c[0]->product_id,$c[1]->product_id,$c[2]->product_id,$c[19]->product_id];
+        //dd($cats);
 
-        $products = Product::whereIn('id',$ids)->with('images')->take(4)->get();
+            $products = Product::whereIn('category_id',$cats)->with('images')->take(10)->get();
+        
         return response($products, 200);
     }
 }

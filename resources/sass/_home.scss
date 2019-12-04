@@ -19,6 +19,7 @@
     font-size: 1.4rem;
     color: #FFF;
 }
+
 /********************************/
 /*            Overlay           */
 /********************************/
@@ -31,22 +32,59 @@
     opacity: .4;
 }
 
-@media only screen and (max-width: 500px){
+/** Sideways scrolling **/
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+    .card-body>h6 {
+        overflow-wrap: unset;
+    }
+
+
+    .card {
+        display: inline-block;
+        max-width: 25%;
+
+    }
+}
+
+.scrolling-wrapper {
+    -webkit-overflow-scrolling: touch;
+}
+
+.scrolling-wrapper {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
     .carousel-image {
         height: unset;
-    } 
+    }
+
+    .scrolling-wrapper {
+        .card {
+            display: inline-block;
+            max-width: 70%;
+        }
+    }
 
     .carousel-header {
         display: none;
     }
+
     .carousel-blurb {
         font-size: 1.0rem;
-    }  
+    }
 }
-@media only screen and (min-width:501px) and (max-width: 767px){
+
+@media only screen and (min-width:501px) and (max-width: 767px) {
     .carousel-image {
         height: unset;
-    } 
+    }
 
     .carousel-header {
         font-family: 'Codystar', sans-serif;
@@ -54,15 +92,35 @@
         font-size: 2.5rem;
         display: inline;
     }
+
     .carousel-blurb {
         font-size: 1.2rem;
     }
-    
+
+    .scrolling-wrapper {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+
+        .card {
+            display: inline-block;
+            max-width: 50%;
+        }
+    }
+
 }
-@media only screen and (min-width:768px) and (max-width: 991px){
+
+@media only screen and (min-width:768px) and (max-width: 991px) {
     .carousel-image {
         height: unset;
-    } 
+    }
+
+    .scrolling-wrapper {
+        .card {
+            display: inline-block;
+            max-width: 50%;
+        }
+    }
 
     .carousel-header {
         font-family: 'Codystar', sans-serif;
@@ -70,8 +128,9 @@
         font-size: 2.5rem;
         display: inline;
     }
+
     .carousel-blurb {
         font-size: 1.2rem;
     }
-    
+
 }

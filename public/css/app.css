@@ -10715,6 +10715,11 @@ a.text-dark:focus {
   border: 0;
 }
 
+.text-bars {
+  color: #40739e;
+  border: 0;
+}
+
 .nav-menu {
   height: 40px;
   padding: 0;
@@ -10835,6 +10840,10 @@ a.text-dark:focus {
   display: none;
 }
 
+.navbar-collapse.collapse.in {
+  display: block !important;
+}
+
 @media only screen and (max-width: 767px) {
   .megamenu-container {
     display: none;
@@ -10869,7 +10878,7 @@ a.text-dark:focus {
   }
 
   .mobile-menu {
-    display: block;
+    display: block !important;
     z-index: 1000;
   }
 }
@@ -11113,9 +11122,39 @@ a.text-dark:focus {
   opacity: 0.4;
 }
 
+/** Sideways scrolling **/
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.scrolling-wrapper .card-body > h6 {
+  overflow-wrap: unset;
+}
+
+.scrolling-wrapper .card {
+  display: inline-block;
+  max-width: 25%;
+}
+
+.scrolling-wrapper {
+  -webkit-overflow-scrolling: touch;
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 @media only screen and (max-width: 500px) {
   .carousel-image {
     height: unset;
+  }
+
+  .scrolling-wrapper .card {
+    display: inline-block;
+    max-width: 70%;
   }
 
   .carousel-header {
@@ -11142,11 +11181,27 @@ a.text-dark:focus {
   .carousel-blurb {
     font-size: 1.2rem;
   }
+
+  .scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+
+  .scrolling-wrapper .card {
+    display: inline-block;
+    max-width: 50%;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .carousel-image {
     height: unset;
+  }
+
+  .scrolling-wrapper .card {
+    display: inline-block;
+    max-width: 50%;
   }
 
   .carousel-header {
