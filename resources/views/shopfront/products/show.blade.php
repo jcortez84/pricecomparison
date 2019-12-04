@@ -16,9 +16,8 @@
             </div>
             <div class="row mb-3">
                 <div class="col-md-6 col-lg-4">
-                    <img v-if="product.images.path !== null" :src="'/'+product.images.path" class="product-img-main"
-                        :alt="product.title" id="prod_image">
-                    <img v-else src="https://via.placeholder.com/200" class="product-img-main" alt="no-image">
+                    <img :src="'/'+product.images.path" class="product-img-main" :alt="product.title" id="prod_image"
+                        onError=" this.src='https://via.placeholder.com/300x250/CC0?text=No+image'">
                 </div>
                 <div class="col-md-6 col-lg-8">
                     <h1 class="product-name text-muted" v-html="product.title">@{{product.title}}</h1>
