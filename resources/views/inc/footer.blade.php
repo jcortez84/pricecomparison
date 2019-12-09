@@ -86,6 +86,10 @@
     <div class="footer-copyright text-center py-3">{{ config('app.name', 'LowPrices4u') }} © 2019
     </div>
     <!-- Copyright -->
+    <div class="text-right">
+      <a class="text-white" href="https://peterncu.be">Website developed by <img class="rounded-circle"
+          src="https://peterncu.be/favicon.ico" alt=""></a>
+    </div>
 
   </footer>
 </div>
