@@ -108,11 +108,15 @@ class SSHProductsController extends Controller
                  */
                 if ($feed->column_brand !== null){
                     if($data[$feed->column_brand] !== null){
-                        $brand = Brand::where('name', $data[$feed->column_brand])->first();
+                        // $brand = Brand::where('name', $data[$feed->column_brand])->first();
+                        $brand = DB::table('brands')->where('name', $data[$feed->column_brand])->first();
                         if(!$brand){
-                            $new_brand = new Brand;
-                            $new_brand->name = $data[$feed->column_brand];
-                            $new_brand->save();
+                            DB::table('brands')->insert(
+                                ['name' => $data[$feed->column_brand]]
+                            );
+                            // $new_brand = new Brand;
+                            // $new_brand->name = $data[$feed->column_brand];
+                            // $new_brand->save();
                         }
                     }
                 }
@@ -122,10 +126,14 @@ class SSHProductsController extends Controller
                      * If yes we add product as permitted otherwise we skip this step
                      */
                     
-                    $mpn = @ProductCode::where('mpn','=',$data[$feed->column_mpn])->first();
-                    $ean = @ProductCode::where('ean','=',$data[$feed->column_ean])->first();
-                    $gtin = @ProductCode::where('gtin','=',$data[$feed->column_gtin])->first();
-                    $upc = @ProductCode::where('upc','=',$data[$feed->column_upc])->first();
+                    //$mpn = @ProductCode::where('mpn','=',$data[$feed->column_mpn])->first();
+                    $mpn = DB::table('product_codes')->where('mpn', $data[$feed->column_mpn])->first();
+                    //$ean = @ProductCode::where('ean','=',$data[$feed->column_ean])->first();
+                    $ean = DB::table('product_codes')->where('ean','=',$data[$feed->column_ean])->first();
+                    //$gtin = @ProductCode::where('gtin','=',$data[$feed->column_gtin])->first();
+                    $gtin = DB::table('product_codes')->where('gtin','=',$data[$feed->column_gtin])->first();
+                    //$upc = @ProductCode::where('upc','=',$data[$feed->column_upc])->first();
+                    $upc = DB::table('product_codes')->where('upc','=',$data[$feed->column_upc])->first();
 
                 /**
                  * We check if we can add new products and that the 
@@ -133,7 +141,7 @@ class SSHProductsController extends Controller
                  */
                 if($feed->add_new_products && !$mpn || !$ean || !$gtin || !$upc){
                     if(isset($feed->column_brand)){
-                        $brandId = Brand::where('name', $data[$feed->column_brand])->first();
+                        $brandId = DB::table('brands')->where('name', $data[$feed->column_brand])->first();
                         $brandId = $brandId->id;
                     }else{
                         $brandId = 0;

@@ -15,6 +15,7 @@ use App\Match;
 use App\Brand;
 use App\Category;
 use ZipArchive;
+use Illuminate\Support\Facades\DB;
 
 class DatafeedsController extends Controller
 {
@@ -248,7 +249,8 @@ class DatafeedsController extends Controller
      */
     public function run($id)
     {
-        $feed = Datafeed::find($id);
+        //$feed = Datafeed::find($id);
+        $feed = DB::table('datafeeds')->find($id);
 
         /**
          * Merchant ID is set here
@@ -259,6 +261,21 @@ class DatafeedsController extends Controller
          * Datafeed url is set here
          */
         $url = $feed->url;
+        $brandId = null;
+        $category_id = null;
+        $title = null;
+        $slug = null;
+        $mpn = null;
+        $ean = null;
+        $upc = null;
+        $gtin = null;
+        $isbn = null;
+        $description = null;
+        $min_price = null;
+        $max_price = null;
+        $brand_id = null;
+        $update_price = null;
+        $new_price = null;
 
         /**
          * Now we create the merchant autofeed
@@ -298,7 +315,7 @@ class DatafeedsController extends Controller
         /**
          * Now process the file
          */
-        while (($data = fgetcsv($handle, 0, ',')) !== FALSE){
+     while (($data = fgetcsv($handle, 0, ',')) !== FALSE){
             if($i === 0){
                 //Skip headers in CSV file
             }else{
@@ -310,11 +327,11 @@ class DatafeedsController extends Controller
                  */
                 if ($feed->column_brand !== null){
                     if($data[$feed->column_brand] !== null){
-                        $brand = Brand::where('name', $data[$feed->column_brand])->first();
+                        $brand = DB::table('brands')->where('name', $data[$feed->column_brand])->first();
                         if(!$brand){
-                            $new_brand = new Brand;
-                            $new_brand->name = $data[$feed->column_brand];
-                            $new_brand->save();
+                            DB::table('brands')->insert(
+                                ['name' => $data[$feed->column_brand]]
+                            );
                         }
                     }
                 }
@@ -322,11 +339,18 @@ class DatafeedsController extends Controller
                      * Here we check if this feed is allowed to add new prodcuts to our database
                      * If yes we add product as permitted otherwise we skip this step
                      */
-                    
-                    $mpn = @ProductCode::where('mpn','=',$data[$feed->column_mpn])->first();
-                    $ean = @ProductCode::where('ean','=',$data[$feed->column_ean])->first();
-                    $gtin = @ProductCode::where('gtin','=',$data[$feed->column_gtin])->first();
-                    $upc = @ProductCode::where('upc','=',$data[$feed->column_upc])->first();
+                    if($feed->column_mpn){
+                        $mpn = DB::table('product_codes')->where('mpn', $data[$feed->column_mpn])->first();
+                    }
+                    if($feed->column_ean){                        
+                        $ean = DB::table('product_codes')->where('ean','=',$data[$feed->column_ean])->first();
+                    }
+                    if($feed->column_gtin){                        
+                        $gtin = DB::table('product_codes')->where('gtin','=',$data[$feed->column_gtin])->first();
+                    }
+                    if($feed->column_upc){  
+                        $upc = DB::table('product_codes')->where('upc','=',$data[$feed->column_upc])->first();
+                    }
 
                 /**
                  * We check if we can add new products and that the 
@@ -334,38 +358,64 @@ class DatafeedsController extends Controller
                  */
                     if($feed->add_new_products && !$mpn || !$ean || !$gtin || !$upc){
                         
-                        $product = new Product;
+                        //$product = new Product;
                         $nextId = Product::max('id')+1;
-                        $brandId = Brand::where('name', $data[$feed->column_brand])->first();
+                        $product_id = Product::max('id');
+                        if($feed->column_brand){
+                            $brandId = DB::table('brands')->where('name', $data[$feed->column_brand])->first();
+                        }
                         
-                        $product->category_id = $data[$feed->column_category_id]; //) || $data[$feed->column_category_id] > 999)?$data[$feed->column_category_id]:30;
+                        if($feed->column_category_id){
+                            $category_id = $data[$feed->column_category_id]; 
+                        }
+                        if($feed->column_name){
+                            $title = $data[$feed->column_name];
+                            $slug = $nextId.'-'.makeSlug($data[$feed->column_name]);
+                        }else{
+                            continue;
+                        }    
+                        if($feed->column_mpn && $feed->column_mpn){
+                            $mpn = $data[$feed->column_mpn];
+                        }
+                        if($feed->column_ean && $feed->column_ean){
+                            $ean = $data[$feed->column_ean];
+                        }
+                        if($feed->column_upc && $feed->column_upc){
+                            $upc = $data[$feed->column_upc];
+                        }
+                        if($feed->column_gtin && $feed->column_gtin){
+                            $gtin = $data[$feed->column_gtin];
+                        }
+                        if($feed->column_isbn && $feed->column_isbn){
+                            $isbn = $data[$feed->column_isbn];
+                        }
+                        if($feed->column_description && $feed->column_description){
+                            $description = $data[$feed->column_description];
+                        }
 
-                        $product->title = $data[$feed->column_name];
-                        $product->slug = $nextId.'-'.makeSlug($data[$feed->column_name]);
-                        if($feed->column_mpn && $data[$feed->column_mpn]){
-                            $product->mpn = $data[$feed->column_mpn];
+                        $min_price = 0;
+                        $max_price = 0;
+                        if($brandId){
+                            $brand_id = $brandId->id;
                         }
-                        if($feed->column_ean && $data[$feed->column_ean]){
-                            $product->ean = $data[$feed->column_ean];
-                        }
-                        if($feed->column_upc && $data[$feed->column_upc]){
-                            $product->upc = $data[$feed->column_upc];
-                        }
-                        if($feed->column_gtin && $data[$feed->column_gtin]){
-                            $product->gtin = $data[$feed->column_gtin];
-                        }
-                        if($feed->column_isbn && $data[$feed->column_isbn]){
-                            $product->isbn = $data[$feed->column_isbn];
-                        }
-                        if($feed->column_description && $data[$feed->column_description]){
-                            $product->description = $data[$feed->column_description];
-                        }
-
-                        $product->min_price = 0;
-                        $product->max_price = 0;
-                        $product->brand_id = $brandId->id;
+                        
+                        
         
-                        $product->save();
+                       // $product->save();
+                        $product_id = DB::table('products')->insertGetId([
+                            'category_id' => $category_id,
+                            'title' => $title,
+                            'slug' => $slug,
+                            'mpn' => $mpn,
+                            'ean' => $ean,
+                            'upc' => $upc,
+                            'gtin' => $gtin,
+                            'isbn' => $isbn,
+                            'description' => $description,
+                            'min_price' => $min_price,
+                            'max_price' => $max_price,
+                            'brand_id' => $brand_id,
+                        ]);
                         
                         /**
                          * We now check to see if there is a product image link
@@ -373,24 +423,31 @@ class DatafeedsController extends Controller
                          */
 
                         if($feed->column_image_url && $data[$feed->column_image_url]){
-                            $image = new ProductImageLink;
-                            $image->product_id = $product->id;
-                            $image->merchant_id = $mId;
-                            $image->download_path = $data[$feed->column_image_url];
-                            $image->save();
+                           // $image = new ProductImageLink;
+                            DB::table('product_image_links')->insert([
+                                'product_id' => $product_id,
+                                'merchant_id' => $mId,
+                                'download_path' => $data[$feed->column_image_url],
+                            ]);
+                            
+                           // $image->save();
                         }
                         
                         /**
                          * This part will add product codes in in the product matching table
                         */
-                        $pc = new ProductCode;
-                        $pc->product_id = $product->id;
-                        $pc->mpn = $product->mpn;
-                        $pc->ean = $product->ean;
-                        $pc->upc = $product->upc;
-                        $pc->gtin = $product->gtin;
-                        $pc->isbn = $product->isbn;
-                        $pc->save();
+                        //$pc = new ProductCode;
+                        DB::table('product_codes')->insert([
+                            'product_id' => $product_id,
+                            'mpn' => $mpn,
+                            'ean' => $ean,
+                            'upc' => $upc,
+                            'gtin' => $gtin,
+                            'isbn' => $isbn,
+                            'title' => $title
+                        ]);
+                        
+                        //$pc->save();
                     }
                     /**
                      * This section will add product prices for merchant.
@@ -399,17 +456,17 @@ class DatafeedsController extends Controller
                      * Once we locate the product we check if price is already in database
                      */
                     if($feed->match_by === 'mpn'){
-                        $match = ProductCode::where('mpn','=',$data[$feed->column_mpn])->first();
+                        $match = DB::table('product_codes')->where('mpn','=',$data[$feed->column_mpn])->first();
                     }elseif($feed->match_by === 'ean'){
-                        $match = ProductCode::where('ean','=',$data[$feed->column_ean])->first();
+                        $match = DB::table('product_codes')->where('ean','=',$data[$feed->column_ean])->first();
                     }elseif($feed->match_by === 'isbn'){
-                        $match = ProductCode::where('isbn','=',$data[$feed->column_isbn])->first();
+                        $match = DB::table('product_codes')->where('isbn','=',$data[$feed->column_isbn])->first();
                     }elseif($feed->match_by === 'gtin'){
-                        $match = ProductCode::where('gtin','=',$data[$feed->column_gtin])->first();
+                        $match = DB::table('product_codes')->where('gtin','=',$data[$feed->column_gtin])->first();
                     }elseif($feed->match_by === 'upc'){
-                        $match = ProductCode::where('upc','=',$data[$feed->column_upc])->first();
+                        $match = DB::table('product_codes')->where('upc','=',$data[$feed->column_upc])->first();
                     }elseif($feed->match_by === 'name'){
-                        $match = Product::where('title','=',$data[$feed->column_name])->first();
+                        $match = DB::table('product_codes')->where('title','=',$data[$feed->column_name])->first();
                     }
 
                     /**
@@ -419,34 +476,53 @@ class DatafeedsController extends Controller
                     if($match){
                         $prod_id = $match->product_id;
                         $fields = ['product_id' => $prod_id, 'merchant_id' => $mId];
-                        $price = Price::where($fields)->first();
+                        $price = DB::table('prices')->where($fields)->first();
 
                         if(!$price){
                             //This bit will add a new price if not in database yet
-                            $price = new Price;
-                            $price->product_id = $prod_id;
-                            $price->merchant_id = $mId;
-                            $price->amount = (float)$data[$feed->column_price];
-                            $price->shipping = (float)(!$data[$feed->column_shipping])??0.00;
-                            $price->product_title = $data[$feed->column_name];
-                            $price->buy_link = $data[$feed->column_buy_url];
-                            $price->save();
+                            // $price = new Price;
+                            // $price->product_id = $prod_id;
+                            // $price->merchant_id = $mId;
+                            // $price->amount = (float)$data[$feed->column_price];
+                            // $price->shipping = (float)(!$data[$feed->column_shipping])??0.00;
+                            // $price->product_title = $data[$feed->column_name];
+                            // $price->buy_link = $data[$feed->column_buy_url];
+                            // $price->save();
+                            
+                            $new_price[] = [
+                                
+                                'product_id' => $prod_id,
+                                'merchant_id' => $mId,
+                                'amount' => (float)$data[$feed->column_price],
+                                'shipping' => (float)(!$data[$feed->column_shipping])??0.00,
+                                'product_title' => $data[$feed->column_name],
+                                'buy_link' => $data[$feed->column_buy_url]
+                            ];
 
-                            if($feed->column_image_url && $data[$feed->column_image_url]){
-                                $image = new ProductImageLink;
-                                $image->product_id = $match->product_id;
-                                $image->merchant_id = $mId;
-                                $image->download_path = $data[$feed->column_image_url];
-                                $image->save();
-                            }
+                            // if($feed->column_image_url && $data[$feed->column_image_url]){
+                            //     $image = new ProductImageLink;
+                            //     $image->product_id = $match->product_id;
+                            //     $image->merchant_id = $mId;
+                            //     $image->download_path = $data[$feed->column_image_url];
+                            //     $image->save();
+                            // }
 
                         }else{
                             // This means price has been found so we update
-                            $price->amount = (float)$data[$feed->column_price];
-                            $price->shipping = (float)(!$data[$feed->column_shipping])??0.00;
-                            $price->product_title = $data[$feed->column_name];
-                            $price->buy_link = $data[$feed->column_buy_url];
-                            $price->save();
+                            // $price->amount = (float)$data[$feed->column_price];
+                            // $price->shipping = (float)(!$data[$feed->column_shipping])??0.00;
+                            // $price->product_title = $data[$feed->column_name];
+                            // $price->buy_link = $data[$feed->column_buy_url];
+                            //  $price->save();
+                             $update_price[] = [
+                                'id'=> $price->id,
+                                'product_id' => $prod_id,
+                                'merchant_id' => $mId,
+                                'amount' => (float)$data[$feed->column_price],
+                                'shipping' => (float)(!$data[$feed->column_shipping])??0.00,
+                                'product_title' => $data[$feed->column_name],
+                                'buy_link' => $data[$feed->column_buy_url]
+                            ];
                         }
 
                     }else{
@@ -456,6 +532,13 @@ class DatafeedsController extends Controller
 
             $i++;//Counter used to skip csv file headers
         }
+        if($new_price){
+            DB::table('prices')->insert($new_price);
+        }
+        if($update_price){
+            DB::table('prices')->updateOrInsert($update_price);
+        }
+
         fclose($handle);
 
         return redirect()->back()->with('success', 'Product feed ran successfully');
