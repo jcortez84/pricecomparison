@@ -16,7 +16,6 @@ class CategoriesController extends Controller
     public function index()
     {
         $list = Category::where('parent_id', '0')->get();
-        
         return view('shopfront.categories.index')->with(compact('list'));
     }
 
